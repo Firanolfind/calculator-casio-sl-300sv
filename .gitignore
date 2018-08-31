@@ -1,0 +1,28 @@
+#IDE
+.idea/
+
+# dependencies
+/node_modules
+*.sublime-*
+
+# testing
+/coverage
+/reports
+test-report.xml
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# system
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.scannerwork/

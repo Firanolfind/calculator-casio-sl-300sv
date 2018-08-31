@@ -1,0 +1,11 @@
+build/*
+config/*
+node_modules/*
+src/**/__test__/*.js
+public/*
+.*
+*.md
+*.sublime-project
+package.json
+*.properties
+yarn.*
