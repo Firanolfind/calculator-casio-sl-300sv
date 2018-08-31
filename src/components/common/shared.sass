@@ -1,0 +1,52 @@
+
+%form-input
+  width: 100%
+  padding-bottom: $form-group-padding-bottom
+  $height: 18px
+  &.label-2
+    label
+      min-height: 2 * $height
+  &.label-3
+    label
+      min-height: 3 * $height
+  label
+    position: relative
+    display: flex;
+    align-items: flex-end;
+    width: 100%
+    color: $gray-600
+    font-size: 12px
+    font-weight: 300
+    margin-bottom: 0.5rem
+    text-transform: uppercase
+    .btn.btn-sm
+      position: absolute
+      right: 1px
+      bottom: -2px;
+
+%form-input-nowrap
+  p,
+  label
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+
+%form-input-is-invalid
+  padding-bottom: 0
+
+%form-input-is-valid
+  padding-bottom: 0
+
+%form-input-help
+  label
+    padding-right: 30px
+
+//
+// Buttons
+//
+%contrast-buttons
+  .btn.btn-secondary,
+  .btn.btn-success,
+  .btn.btn-danger,
+  .btn.btn-warning
+    border-color: hsla(0, 0%, 0%, 0.2)

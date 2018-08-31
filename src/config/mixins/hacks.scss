@@ -1,0 +1,28 @@
+%fix-button {
+  &:active,
+  &:focus,
+  &:active > *,
+  &:focus > * {
+    // ie hack to stop shifting while click
+    position: relative;
+    top: 0;
+    left: 0;
+    // remove outline and shit
+    background-image: none;
+    outline: 0;
+    box-shadow: none;
+    // remove tap bg for webkit
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@mixin ie-only() {
+  /* IE10+ CSS styles go here */
+  @media all and (-ms-high-contrast: none), (-ms-hight-contrst: active) {
+    @content;
+  }
+  /* IE9 < */
+  @media screen\0 {
+    @content;
+  }
+}

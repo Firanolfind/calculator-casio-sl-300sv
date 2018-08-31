@@ -1,0 +1,14 @@
+@mixin box($size) {
+  width: $size;
+  height: $size;
+  line-height: $size;
+  text-align: center;
+}
+
+@mixin abs-box($padding: 0) {
+  position: absolute;
+  top: $padding;
+  bottom: $padding;
+  left: $padding;
+  right: $padding;
+}

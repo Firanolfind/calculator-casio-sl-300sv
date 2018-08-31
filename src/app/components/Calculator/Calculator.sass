@@ -1,0 +1,53 @@
+
+\:local(.Calculator)
+  width: 400px
+  .buttonRow
+    .button
+      position: relative
+      display: inline-block
+      width: 20%
+      height: 70px
+      .bg
+        position: absolute
+        @include abs-box(5px)
+        background: #ccc;
+        border-radius: 45% 45% 40% 40% / 11% 11% 25% 25%
+        transform: perspective(10px) rotateX(-1deg)
+
+        $main: #373742
+        $main: #b14261
+        background-color: $main
+        background-image: linear-gradient(180deg, $main 70%, rgba(#fff, 0.4))
+        box-shadow: inset rgba(#000, 0.3) 0 1px 0 2px,
+        inset rgba(#000, 0.3) -2px 0px 0px 1px,
+        inset rgba(#000, 0.3) 2px 0px 0px 1px,
+        inset $main 0px 1px 0px 2px,
+        inset #fff 0px 2px 4px 1px,
+        inset $main 0px 2px 1px 1px,
+        inset $main 0px -2px 1px 0px,
+        inset rgba($main, 1) 0px -5px 0px 2px,
+        inset $main 0px -4px 0px 0px,
+        // inset #000 0px -6px 0px 1px,
+        inset rgba(#fff, 0.65) 0px -6px 3px 0px
+        // inset #fff 0px -3px 1px 1px
+
+        &:before
+          content: ''
+          @include abs-box
+
+
+      .content
+        position: absolute
+        @include abs-box(5px)
+        bottom: 12px
+        display: flex
+        text-align: center
+        flex-direction: column
+        display: flex
+        text-align: center
+        align-content: center
+        justify-content: center
+        color: #fff
+        font-family: $default-font
+        text-transform: uppercase
+        font-size: 30px

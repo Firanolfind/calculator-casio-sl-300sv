@@ -1,0 +1,76 @@
+// Variables
+
+//
+// Color system
+//
+
+// White;
+$white: #fff;
+
+// Grey specter
+$gray-50: #fafafa;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-550: #8d9398;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+// Black specter
+$dark-black-gray: #1f1f1f;
+$dark-black: #0c0c0c;
+$medium-black: #212529;
+$light-black: #2f2d29;
+$light-black-gray: #2f2f2f;
+$fa-white: #fafafa;
+$black: #000;
+
+//Blue
+$calypso: #27627d;
+$darkBlue-link: $calypso;
+$blue-chill: #0d6a8e;
+$powder-blue: #abd3e2;
+$iceberg: #e2eff4;
+
+// Brown;
+$dark-gold: #a17d5b;
+$text-gold: $dark-gold;
+$cocoa-brown: #171010;
+// Green;
+// rgb(30, 181, 164) !important
+// 0 0 0 0.2rem rgba(30, 181, 164, 0.35) !important
+$light-green: #28b2a3;
+$jungle-green: #28b2a3;
+$light-green-hover: #5ac3b9;
+$green: #3db762;
+$primary: $jungle-green;
+$secondary: $white;
+
+
+
+//
+// Fonts
+//
+$alternative-fonts-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$alternative-fonts-serif: 'Times New Roman', serif;
+$alternative-fonts: $alternative-fonts-sans-serif;
+
+$primary-font: $alternative-fonts-serif;
+$default-font: $alternative-fonts-sans-serif;
+
+//
+// Grid
+//
+$font-family-sans-serif: $default-font;
+
+$grid-gutter-width: 14px;
+
+
+
+
+

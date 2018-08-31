@@ -1,0 +1,21 @@
+//
+// Import Configs
+//
+@import './variables';
+
+// Import bootstrap function, variables, mixins
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+// Import icon map
+@import './icons';
+
+// Import local mixins
+@import './mixins/common';
+@import './mixins/hacks';
+@import './mixins/fonts';
+@import './mixins/icons';
+
+// Local shared components configurations
+// @import '../components/common/shared';

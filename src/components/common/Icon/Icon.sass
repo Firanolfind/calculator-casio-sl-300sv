@@ -1,0 +1,7 @@
+
+// [class^="icon-"], [class*=" icon-"]
+\:local(.Icon)
+  @include icon-style
+
+  // Generate Icons
+  @include generate-icons($_ICON_MAP, 'icon')

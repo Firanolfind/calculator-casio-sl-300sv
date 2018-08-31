@@ -1,0 +1,51 @@
+// Icon mixins
+
+// Icon style
+@mixin icon-style($font-weight: normal) {
+  font-family: 'Icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: $font-weight;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// Icon style
+%icon-style {
+  font-family: 'Icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Assigning icon styles and content
+@mixin icon($name, $pseudo: null, $map: $_ICON_MAP, $font-weight: normal) {
+  @if map-has-key($map, $name) {
+    @if $pseudo == null {
+      @extend %icon-style;
+      content: map-get($map, $name);
+    } @else {
+      &:#{$pseudo} {
+        @include icon-style;
+        content: map-get($map, $name);
+      }
+    }
+  }
+}
+
+// Generating icons
+@mixin generate-icons($map: $_ICON_MAP, $prefix: 'icon') {
+  @each $name, $content in $map {
+    &.#{$prefix}-#{$name} {
+      &.after:after,
+      &.before:before {
+        content: $content;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@mixin font-face(
+  $name: null,
+  $slug: null,
+  $group: null,
+  $weight: normal,
+  $style: normal,
+  $exts: eot woff2 woff ttf svg,
+  $unicode_range: null,
+  $v: '0.0.0'
+) {
+  @if ($name == null) {
+    $name: $slug;
+  }
+
+  @if ($group == null) {
+    $group: $slug;
+  }
+
+  $weight_name: $weight;
+
+  $filename: $slug;
+  @if ($weight_name != null) {
+    $filename: $filename + '_w' + $weight + '_' + $style;
+  }
+
+  $path: $_FONTPATH + $group + '/' + $filename;
+
+  $src: null;
+
+  $extmods: (
+    eot: '?v=' + $v,
+    svg: '#' + str-replace($name, ' ', '_') + '?v=' + $v,
+    woff2: '?v=' + $v,
+    woff: '?v=' + $v,
+    ttf: '?v=' + $v
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype'
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+
+    @if ($unicode_range != null) {
+      unicode-range: $unicode_range;
+    }
+  }
+}
+
+@mixin font-faces($set, $v) {
+  @each $name, $slug, $group, $weight, $style, $exts, $unicode_range in $set {
+    @if ($exts == null) {
+      $exts: eot woff2 woff ttf svg;
+    }
+    @include font-face($name, $slug, null, $weight, $style, $exts, $unicode_range, $v);
+  }
+}
