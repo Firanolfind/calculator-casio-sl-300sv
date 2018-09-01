@@ -1,11 +1,15 @@
 \:local(.Comma)
+  $color: $black;
   position: absolute
-  background: #0f0
   width: 8px
-  height: 18px
+  height: 17px
   bottom: 12px
   top: 11px
   transform: skew(-4deg)
+  background: linear-gradient(-76deg, transparent 5px, #000 0px) top left
+  background-size: 100%
+  background-repeat: no-repeat
+  background-repeat: no-repeat
 
   @for $i from 0 through 6
     &.comma-#{$i}

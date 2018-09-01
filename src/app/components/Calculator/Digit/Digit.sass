@@ -5,7 +5,9 @@
 
   \:local(.Digit)
     margin-right: 9px
+    // display: none
     &.digit-0
+      // display: block
       margin-right: 13px
 
     &.digit-1
@@ -24,18 +26,19 @@
 \:local(.Digit)
 
   $k: 1
-  $padding: $k * 5px
-  $h: $k * 100px
-  $x: $k * 66px
-  $y: $k * 20px
+  $padding: $k * 2px
+  $h: $k * 99px/2
+  $x: $k * 29px
+  $y: $k * 10px
+  $error: 0px
 
-  $bar0x: $y/2
-  $bar1x: 0
-  $bar2x: $x
-  $bar3x: $y/2
-  $bar4x: 0
-  $bar5x: $x
-  $bar6x: $y/2
+  $bar0x: 0.5px + $y/2
+  $bar1x: 0.5px + 0
+  $bar2x: 0.5px + $x
+  $bar3x: 0.5px + $y/2
+  $bar4x: 0.5px + 0
+  $bar5x: 0.5px + $x
+  $bar6x: 0.5px + $y/2
 
   $bar0y: 0
   $bar1y: $y/2
@@ -45,7 +48,9 @@
   $bar5y: $h + $y/2
   $bar6y: 2*$h
 
-  background: #3F51B5
+  $color: $black;
+
+  // background: rgba(#3F51B5, 0.2)
   display: flex
   position: relative
   top: 19px
@@ -56,14 +61,73 @@
   font-size: 200px
   transform: skew(-4deg)
 
+  .bar
+    position: absolute
+    background: #2df
+    -webkit-transition: all 0.2s linear
+    -moz-transition: all 0.2s linear
+    transition: all 0.2s linear
+    background: linear-gradient(135deg, transparent 2*$padding + $error, $color 0) top left,
+    linear-gradient(225deg, transparent 2*$padding + $error, $color 0) top right,
+    linear-gradient(315deg, transparent 2*$padding + $error, $color 0) bottom right,
+    linear-gradient(45deg, transparent 2*$padding + $error, $color 0) bottom left
+    background-size: 52% 52%
+    background-repeat: no-repeat
+    &:after
+      background: $color;
+      content: ''
 
-// .clock .bar0 { left: $bar0x; top: $bar0y; width: $x; height: $y; }
-// .clock .bar1 { left: $bar1x; top: $bar1y; width: $y; height: $h; }
-// .clock .bar2 { left: $bar2x; top: $bar2y; width: $y; height: $h; }
-// .clock .bar3 { left: $bar3x; top: $bar3y; width: $x; height: $y; }
-// .clock .bar4 { left: $bar4x; top: $bar4y; width: $y; height: $h; }
-// .clock .bar5 { left: $bar5x; top: $bar5y; width: $y; height: $h; }
-// .clock .bar6 { left: $bar6x; top: $bar6y; width: $x; height: $y; }
+  .bar-0,
+  .bar-3,
+  .bar-6
+    &:after
+      @include abs-box(2px, 5px)
+
+  .bar-1,
+  .bar-2,
+  .bar-4,
+  .bar-5
+    &:after
+      @include abs-box(5px, 2px)
+
+  .bar-0
+    left: $bar0x
+    top: $bar0y
+    width: $x
+    height: $y;
+  .bar-1
+    left: $bar1x
+    top: $bar1y
+    width: $y
+    height: $h;
+  .bar-2
+    left: $bar2x
+    top: $bar2y
+    width: $y
+    height: $h;
+  .bar-3
+    left: $bar3x
+    top: $bar3y
+    width: $x
+    height: $y;
+  .bar-4
+    left: $bar4x
+    top: $bar4y
+    width: $y
+    height: $h;
+  .bar-5
+    left: $bar5x
+    top: $bar5y
+    width: $y
+    height: $h;
+  .bar-6
+    left: $bar6x
+    top: $bar6y
+    width: $x
+    height: $y;
+
+
+
 // .clock .fadeout {
 //   background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255, 0.8));
 //   background-image: -webkit-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255, 0.8));

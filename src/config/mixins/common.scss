@@ -5,12 +5,15 @@
   text-align: center;
 }
 
-@mixin abs-box($padding: 0) {
+@mixin abs-box($y: 0, $x: null) {
+  @if $x == null {
+    $x: $y
+  }
   position: absolute;
-  top: $padding;
-  bottom: $padding;
-  left: $padding;
-  right: $padding;
+  top: $y;
+  bottom: $y;
+  left: $x;
+  right: $x;
 }
 
 
