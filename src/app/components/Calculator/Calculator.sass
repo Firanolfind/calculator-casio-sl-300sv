@@ -11,29 +11,41 @@
         position: absolute
         @include abs-box(5px)
         background: #ccc;
-        border-radius: 45% 45% 40% 40% / 11% 11% 25% 25%
+        border-radius: 20% 20% 40% 40% / 20% 20% 25% 25%
         transform: perspective(10px) rotateX(-1deg)
 
         $main: #373742
-        $main: #b14261
+        // $main: #b14261
         background-color: $main
-        background-image: linear-gradient(180deg, $main 70%, rgba(#fff, 0.4))
-        box-shadow: inset rgba(#000, 0.3) 0 1px 0 2px,
-        inset rgba(#000, 0.3) -2px 0px 0px 1px,
-        inset rgba(#000, 0.3) 2px 0px 0px 1px,
-        inset $main 0px 1px 0px 2px,
-        inset #fff 0px 2px 4px 1px,
-        inset $main 0px 2px 1px 1px,
+        background-image: linear-gradient(180deg, $main 50%, rgba(#fff, 0.3))
+        box-shadow: inset rgba(0, 0, 0, 0.3) 0 1px 0 0px,
+        inset rgba(0, 0, 0, 0.3) -2px 0px 0px 1px,
+        inset rgba(0, 0, 0, 0.3) 2px 0px 0px 1px,
+        inset darken($white, 50%) 0px -2px 0px 0px,
         inset $main 0px -2px 1px 0px,
-        inset rgba($main, 1) 0px -5px 0px 2px,
-        inset $main 0px -4px 0px 0px,
-        // inset #000 0px -6px 0px 1px,
-        inset rgba(#fff, 0.65) 0px -6px 3px 0px
-        // inset #fff 0px -3px 1px 1px
+        inset darken($main, 30%) 0px -4px 0px 2px,
+        inset $main 0px 2px 0px 0px,
+        inset $main 2px 0px 1px 1px,
+        inset $white 0px 1px 2px 1px,
+        inset $white 3px 0px 1px 0px,
+        inset $white 0px -6px 3px 0px,
+        inset $main 2px 0px 1px 0px,
+        inset darken($main, 30%) -4px 0px 0px 0px,
+        inset darken($main, 30%) -4px -4px 0px 0px,
+        inset darken($main, 30%) 3px -4px 0px 0px,
+        inset $main 4px 1px 0px 0px,
+        inset $white 4px 1px 2px 1px,
+        inset rgba($white, 0.65) 0px -4px 3px 0px
 
         &:before
           content: ''
-          @include abs-box
+          @include abs-box(5px)
+          margin-top: -5px
+          // background-image: linear-gradient(180deg, $main 70%, rgba(#fff, 0.4))
+          // background: #000
+          box-shadow: rgba($main, 0.73) 0 -1px 1px 0px,
+          rgba(#000, 1) 0 -2px 0 0px
+          border-radius: 35% 35% 40% 40% / 11% 11% 25% 25%
 
 
       .content
