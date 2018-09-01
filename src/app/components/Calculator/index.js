@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Col } from 'reactstrap';
 import * as actions from '~/redux/global/actions';
 import style from './Calculator.sass';
 
-const Button = ({children}) => (
-  <div className="button">
+const Button = ({children, size, active}) => (
+  <div className={classNames("button",{
+    sm: size === 'sm',
+    lg: size === 'lg',
+    active: active
+  })}>
     <div className="bg">
     </div>
     <div className="content">
@@ -52,10 +57,10 @@ class Calculator extends Component {
               <div className="modelName">
                 SL-300SV
               </div>
-              <Button>
+              <Button size="sm">
                 sqrt
               </Button>
-              <Button>
+              <Button size="sm">
                 off
               </Button>
             </div>
@@ -69,11 +74,76 @@ class Calculator extends Component {
               <Button>
                 m-
               </Button>
-              <Button>
+              <Button active>
                 m+
               </Button>
               <Button>
                 /
+              </Button>
+            </div>
+            <div className="buttonRow">
+              <Button>
+                %
+              </Button>
+              <Button>
+                7
+              </Button>
+              <Button>
+                8
+              </Button>
+              <Button>
+                9
+              </Button>
+              <Button>
+                X
+              </Button>
+            </div>
+            <div className="buttonRow">
+              <Button>
+                +/-
+              </Button>
+              <Button>
+                4
+              </Button>
+              <Button>
+                5
+              </Button>
+              <Button>
+                6
+              </Button>
+              <Button>
+                -
+              </Button>
+            </div>
+            <div className="buttonRow">
+              <Button>
+                C
+              </Button>
+              <Button>
+                1
+              </Button>
+              <Button>
+                2
+              </Button>
+              <Button>
+                3
+              </Button>
+              <Button size="lg">
+                +
+              </Button>
+            </div>
+            <div className="buttonRow">
+              <Button>
+                AC
+              </Button>
+              <Button>
+                0
+              </Button>
+              <Button>
+                .
+              </Button>
+              <Button>
+                =
               </Button>
             </div>
           </div>
