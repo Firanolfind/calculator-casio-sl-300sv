@@ -3,9 +3,10 @@ $main: #373742
 // $main: #b14261
 \:local(.Calculator)
   position: relative
-  box-sizing: content-box
-  width: 400px
-  padding: 30px
+  // box-sizing: content-box
+  width: 510px
+  height: 800px
+  padding: 30px 15px
   &:before
     content: ''
     @include abs-box
@@ -14,5 +15,11 @@ $main: #373742
     filter: contrast(130%)
   ::selection
     background: transparent
-  .buttonRow
+  // .buttonRow
+  .header
+    position: absolute
 
+  .solarPanel
+    height: 91px
+  .slogan
+    position: absolute

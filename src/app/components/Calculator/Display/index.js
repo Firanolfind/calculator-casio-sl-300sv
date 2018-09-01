@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Row } from 'reactstrap';
 import style from './Display.sass';
+import digitStyles from '../Digit/Digit.sass';
 
 class Button extends PureComponent {
   render() {
@@ -10,7 +11,7 @@ class Button extends PureComponent {
     return (
       <Row className={style.Display}>
         <div className="inner">
-          <div className="digits">
+          <div className={digitStyles.Digits}>
             {children}
           </div>
         </div>

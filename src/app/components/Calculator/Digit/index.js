@@ -7,7 +7,7 @@ class Digit extends PureComponent {
   render() {
     const { position } = this.props;
     return (
-      <div className={classNames(style.Digit, `digit-${position}`)}>
+      <div className={classNames(style.Digit, 'digit', `digit-${position}`)}>
         {[...Array(7).keys()].map(item => (
           <div className={classNames('bar', `bar-${item}`)} key={item} />
         ))}

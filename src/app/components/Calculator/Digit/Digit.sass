@@ -1,3 +1,26 @@
+\:local(.Digits)
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+
+  \:local(.Digit)
+    margin-right: 9px
+    &.digit-0
+      margin-right: 13px
+
+    &.digit-1
+
+    &.digit-2
+
+    &.digit-3
+
+    &.digit-4
+
+    &.digit-5
+
+    &.digit-6
+
+
 \:local(.Digit)
 
   $k: 1
@@ -22,6 +45,25 @@
   $bar5y: $h + $y/2
   $bar6y: 2*$h
 
+  background: #3F51B5
+  display: flex
+  position: relative
+  top: 19px
+  margin: 0
+  padding: 0
+  width: 40px
+  height: 109px
+  font-size: 200px
+  transform: skew(-4deg)
+
+
+// .clock .bar0 { left: $bar0x; top: $bar0y; width: $x; height: $y; }
+// .clock .bar1 { left: $bar1x; top: $bar1y; width: $y; height: $h; }
+// .clock .bar2 { left: $bar2x; top: $bar2y; width: $y; height: $h; }
+// .clock .bar3 { left: $bar3x; top: $bar3y; width: $x; height: $y; }
+// .clock .bar4 { left: $bar4x; top: $bar4y; width: $y; height: $h; }
+// .clock .bar5 { left: $bar5x; top: $bar5y; width: $y; height: $h; }
+// .clock .bar6 { left: $bar6x; top: $bar6y; width: $x; height: $y; }
 // .clock .fadeout {
 //   background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255, 0.8));
 //   background-image: -webkit-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255, 0.8));
@@ -50,10 +92,7 @@
 // }
 
 
-// .clock ul li.digit {
-//   font-size: 200px;
-//   transform: skew(-1.5deg);
-// }
+// .clock ul li
 
 // .clock ul li.digit5, .clock ul li.digit6 {
 //   position: absolute;

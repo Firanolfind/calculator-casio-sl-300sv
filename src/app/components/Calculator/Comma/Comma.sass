@@ -1,2 +1,12 @@
 \:local(.Comma)
+  position: absolute
+  background: #0f0
+  width: 8px
+  height: 18px
+  bottom: 12px
+  top: 11px
+  transform: skew(-4deg)
 
+  @for $i from 0 through 6
+    &.comma-#{$i}
+      right: 49 + 49*$i + px

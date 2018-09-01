@@ -24,7 +24,7 @@ class Calculator extends Component {
           <Col xs="12" className="body">
             <div className="logo">
             </div>
-            <div className="solar_panel">
+            <div className="solarPanel">
               <div className="cells">
                 <div className="cell"/>
                 <div className="cell"/>
@@ -36,14 +36,13 @@ class Calculator extends Component {
               two way power
             </div>
             <Display>
-              {[...Array(7).keys()].map(item => (
-                console.log(item) ||
+              {[...Array(8).keys()].reverse().map(item => (
                 <Digit position={item} key={item} />
               ))}
-              {[...Array(6).keys()].map(item => (
+              {[...Array(8).keys()].reverse().map(item => (
                 <Dot position={item} key={item} />
               ))}
-              {[...Array(6).keys()].map(item => (
+              {[...Array(7).keys()].reverse().map(item => (
                 <Comma position={item} key={item} />
               ))}
             </Display>
