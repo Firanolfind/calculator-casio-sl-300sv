@@ -38,7 +38,7 @@ class Calculator extends Component {
             </div>
             <Display>
               {[...Array(8).keys()].reverse().map(item => (
-                <Digit position={item} key={item} />
+                <Digit position={item} key={item} number={item} />
               ))}
               {[...Array(8).keys()].reverse().map(item => (
                 <Dot position={item} key={item} />

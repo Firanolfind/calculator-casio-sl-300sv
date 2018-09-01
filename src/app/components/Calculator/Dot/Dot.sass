@@ -6,7 +6,11 @@
   height: 11px
   bottom: 12px
   right: 9px
+  opacity: 0
 
   @for $i from 0 through 8
     &.dot-#{$i}
       right: 6 + 49*$i + px
+
+  &.on
+    opacity: 1

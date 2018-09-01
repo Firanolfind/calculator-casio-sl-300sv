@@ -63,10 +63,8 @@
   transform: skew(-4deg)
 
   .bar
+    opacity: 0
     position: absolute
-    background: #2df
-    -webkit-transition: all 0.2s linear
-    -moz-transition: all 0.2s linear
     transition: all 0.2s linear
     background: linear-gradient(135deg, transparent 2*$padding + $error, $color 0) top left,
     linear-gradient(225deg, transparent 2*$padding + $error, $color 0) top right,
@@ -77,6 +75,9 @@
     &:after
       background: $color;
       content: ''
+
+  .bar.on
+    opacity: 1
 
   .bar-0,
   .bar-3,

@@ -10,7 +10,11 @@
   background-size: 100%
   background-repeat: no-repeat
   background-repeat: no-repeat
+  opacity: 0
 
   @for $i from 0 through 6
     &.comma-#{$i}
       right: 49 + 49*$i + px
+
+  &.on
+    opacity: 1
