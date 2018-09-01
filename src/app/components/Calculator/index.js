@@ -5,45 +5,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import * as actions from '~/redux/global/actions';
+import Display from './Display';
+import Button from './Button';
+import Digit from './Digit';
+import Comma from './Comma';
+import Dot from './Dot';
 import style from './Calculator.sass';
-import btnStyle from './Button.sass';
-import displayStyle from './Display.sass';
-
-const Button = ({children, size, active, color}) => (
-  <div className={classNames(btnStyle.Button, {
-    sm: size === 'sm',
-    lg: size === 'lg',
-    active: active,
-    [`color-${color}`]: color
-  })}>
-    <div className="bg">
-    </div>
-    <div className="content">
-      {children}
-    </div>
-  </div>
-);
-
-const Digit = ({children, size, active, color}) => (
-  <div className={classNames(btnStyle.Digit, {
-    sm: size === 'sm',
-    lg: size === 'lg',
-    active: active,
-    [`color-${color}`]: color
-  })}>
-    {[...Array(7)].map(item => (
-      <div className={classNames('bar', `bar-${item}`)} />
-    ))}
-  </div>
-);
-
-const Dot = ({position}) => (
-  <div classNames={classNames('dot', `dot-${position}`)} />
-);
-
-const Comma = ({position}) => (
-  <div classNames={classNames('comma', `comma-${position}`)} />
-);
 
 class Calculator extends Component {
   static propTypes = {
@@ -68,21 +35,18 @@ class Calculator extends Component {
             <div className="slogan">
               two way power
             </div>
-            <Row className={displayStyle.Display}>
-              <div className="inner">
-                <div className="digits">
-                  {[...Array(7)].map(item => (
-                    <Digit position={item} />
-                  ))}
-                  {[...Array(6)].map(item => (
-                    <Dot position={item} />
-                  ))}
-                  {[...Array(6)].map(item => (
-                    <Comma position={item} />
-                  ))}
-                </div>
-              </div>
-            </Row>
+            <Display>
+              {[...Array(7).keys()].map(item => (
+                console.log(item) ||
+                <Digit position={item} key={item} />
+              ))}
+              {[...Array(6).keys()].map(item => (
+                <Dot position={item} key={item} />
+              ))}
+              {[...Array(6).keys()].map(item => (
+                <Comma position={item} key={item} />
+              ))}
+            </Display>
             <Row className="buttonRow">
               <Col xs="7" className="modelName">
                 SL-300SV
