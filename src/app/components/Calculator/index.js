@@ -24,6 +24,27 @@ const Button = ({children, size, active, color}) => (
   </div>
 );
 
+const Digit = ({children, size, active, color}) => (
+  <div className={classNames(btnStyle.Digit, {
+    sm: size === 'sm',
+    lg: size === 'lg',
+    active: active,
+    [`color-${color}`]: color
+  })}>
+    {[...Array(7)].map(item => (
+      <div className={classNames('bar', `bar-${item}`)} />
+    ))}
+  </div>
+);
+
+const Dot = ({position}) => (
+  <div classNames={classNames('dot', `dot-${position}`)} />
+);
+
+const Comma = ({position}) => (
+  <div classNames={classNames('comma', `comma-${position}`)} />
+);
+
 class Calculator extends Component {
   static propTypes = {
   };
@@ -50,7 +71,15 @@ class Calculator extends Component {
             <Row className={displayStyle.Display}>
               <div className="inner">
                 <div className="digits">
-                  12345
+                  {[...Array(7)].map(item => (
+                    <Digit position={item} />
+                  ))}
+                  {[...Array(6)].map(item => (
+                    <Dot position={item} />
+                  ))}
+                  {[...Array(6)].map(item => (
+                    <Comma position={item} />
+                  ))}
                 </div>
               </div>
             </Row>
