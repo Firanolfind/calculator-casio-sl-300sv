@@ -48,11 +48,9 @@ class Calculator extends Component {
               two way power
             </div>
             <Row className={displayStyle.Display}>
-              <div className="displayBorder">
-                <div className="displayInner">
-                  <div className="digits">
-                    12345
-                  </div>
+              <div className="inner">
+                <div className="digits">
+                  12345
                 </div>
               </div>
             </Row>
