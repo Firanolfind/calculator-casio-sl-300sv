@@ -1,0 +1,24 @@
+\:local(.Display)
+  $border: #5d646e
+  position: relative
+  background: $border
+  height: 150px
+  border-radius: 12px 12px 10px 10px
+  margin-bottom: 25px
+  box-shadow: rgba($black, 0.6) 0px 0px 1px 0px,
+  $white 0px 0px 0px 2px,
+  inset rgba($black, 0.6) 0px 0px 0px 1px,
+  inset rgba($white, 0.2) 0px 0px 0px 2px
+  &:after
+    content: ''
+    position: absolute
+    top: 110px
+    bottom: -10px
+    left: 5px
+    right: 5px
+    background: $border
+    border-radius: 0 0 40% 40% / 0 0 25% 25%
+    box-shadow: rgba($black, 0.6) 0px 2px 1px -2px,
+    rgba($white, 0.9) 0px 4px 0px -2px,
+    inset rgba($black, 0.6) 0px -1px 0px 0px,
+    inset rgba($white, 0.2) 0px -2px 0px 0px

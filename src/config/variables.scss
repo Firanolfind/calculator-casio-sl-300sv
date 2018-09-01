@@ -61,7 +61,7 @@ $alternative-fonts-serif: 'Times New Roman', serif;
 $alternative-fonts: $alternative-fonts-sans-serif;
 
 $primary-font: $alternative-fonts-serif;
-$default-font: $alternative-fonts-sans-serif;
+$default-font: 'Open Sans', $alternative-fonts-sans-serif;
 
 //
 // Grid

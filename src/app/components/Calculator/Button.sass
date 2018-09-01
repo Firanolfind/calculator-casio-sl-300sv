@@ -1,0 +1,68 @@
+
+\:local(.Button)
+  $default: #373742
+  $red: #b14261
+  cursor: pointer
+  position: relative
+  display: inline-block
+  width: 20%
+  height: 70px
+  font-weight: 400
+  .bg
+    position: absolute
+    @include abs-box(5px)
+    border-radius: 20% 20% 40% 40% / 20% 20% 25% 25%
+    transform: perspective(10px) rotateX(-1deg)
+    transition: all 150ms ease-in-out;
+    &:before
+      content: ''
+      @include abs-box(5px)
+      margin-top: -5px
+      // background-image: linear-gradient(180deg, $main 70%, rgba(#fff, 0.4))
+      // background: #000
+      border-radius: 35% 35% 40% 40% / 11% 11% 25% 25%
+
+  .content
+    position: absolute
+    @include abs-box(5px)
+    bottom: 12px
+    display: flex
+    text-align: center
+    flex-direction: column
+    display: flex
+    text-align: center
+    align-content: center
+    justify-content: center
+    color: #fff
+    font-family: $default-font
+    text-transform: uppercase
+    font-size: 40px
+
+  &.sm
+    height: 55px
+    .bg
+      border-radius: 20% 20% 40% 40% / 20% 20% 40% 40%
+    .content
+      font-size: 26px
+  &.lg
+    height: 150px
+    .bg
+      transform: none
+      border-radius: 11% 11% 35% 35% / 5% 5% 14% 14%
+      &:before
+        margin-top: -4px
+        bottom: 100px
+        border-radius: 24% 24% 40% 40% / 11% 11% 25% 25%
+    .content
+      // font-size: 26px
+
+  &,
+  &.color-default
+    @include button-color($default)
+  &.color-red
+    @include button-color($red)
+
+
+  &.lg
+    .bg
+      background-image: linear-gradient(180deg, $default 70%, rgba(#fff, 0.2))

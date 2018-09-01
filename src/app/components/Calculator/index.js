@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Col } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import * as actions from '~/redux/global/actions';
 import style from './Calculator.sass';
+import btnStyle from './Button.sass';
+import displayStyle from './Display.sass';
 
-const Button = ({children, size, active}) => (
-  <div className={classNames("button",{
+const Button = ({children, size, active, color}) => (
+  <div className={classNames(btnStyle.Button, {
     sm: size === 'sm',
     lg: size === 'lg',
-    active: active
+    active: active,
+    [`color-${color}`]: color
   })}>
     <div className="bg">
     </div>
@@ -28,9 +31,9 @@ class Calculator extends Component {
   render() {
     return (
       <Col xs="12">
-        <div className={style.Calculator}>
-          <div className="header" />
-          <div className="body">
+        <Row className={style.Calculator}>
+          <Col xs="12" className="header" />
+          <Col xs="12" className="body">
             <div className="logo">
             </div>
             <div className="solar_panel">
@@ -44,7 +47,7 @@ class Calculator extends Component {
             <div className="slogan">
               two way power
             </div>
-            <div className="displayOuter">
+            <Row className={displayStyle.Display}>
               <div className="displayBorder">
                 <div className="displayInner">
                   <div className="digits">
@@ -52,19 +55,19 @@ class Calculator extends Component {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="buttonRow">
-              <div className="modelName">
+            </Row>
+            <Row className="buttonRow">
+              <Col xs="7" className="modelName">
                 SL-300SV
-              </div>
+              </Col>
               <Button size="sm">
                 sqrt
               </Button>
               <Button size="sm">
                 off
               </Button>
-            </div>
-            <div className="buttonRow">
+            </Row>
+            <Row className="buttonRow">
               <Button>
                 mc
               </Button>
@@ -78,10 +81,10 @@ class Calculator extends Component {
                 m+
               </Button>
               <Button>
-                /
+                ÷
               </Button>
-            </div>
-            <div className="buttonRow">
+            </Row>
+            <Row className="buttonRow">
               <Button>
                 %
               </Button>
@@ -97,8 +100,8 @@ class Calculator extends Component {
               <Button>
                 X
               </Button>
-            </div>
-            <div className="buttonRow">
+            </Row>
+            <Row className="buttonRow">
               <Button>
                 +/-
               </Button>
@@ -114,9 +117,9 @@ class Calculator extends Component {
               <Button>
                 -
               </Button>
-            </div>
-            <div className="buttonRow">
-              <Button>
+            </Row>
+            <Row className="buttonRow">
+              <Button color="red">
                 C
               </Button>
               <Button>
@@ -131,9 +134,9 @@ class Calculator extends Component {
               <Button size="lg">
                 +
               </Button>
-            </div>
-            <div className="buttonRow">
-              <Button>
+            </Row>
+            <Row className="buttonRow">
+              <Button color="red">
                 AC
               </Button>
               <Button>
@@ -145,9 +148,9 @@ class Calculator extends Component {
               <Button>
                 =
               </Button>
-            </div>
-          </div>
-        </div>
+            </Row>
+          </Col>
+        </Row>
       </Col>
     );
   }
