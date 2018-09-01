@@ -10,6 +10,7 @@ import Button from './Button';
 import Digit from './Digit';
 import Comma from './Comma';
 import Dot from './Dot';
+import Menu from './Menu';
 import style from './Calculator.sass';
 
 class Calculator extends Component {
@@ -45,6 +46,7 @@ class Calculator extends Component {
               {[...Array(7).keys()].reverse().map(item => (
                 <Comma position={item} key={item} />
               ))}
+              <Menu />
             </Display>
             <Row className="buttonRow">
               <Col xs="7" className="modelName">

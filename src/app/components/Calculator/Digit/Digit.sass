@@ -28,9 +28,10 @@
   $k: 1
   $padding: $k * 2px
   $h: $k * 99px/2
-  $x: $k * 29px
+  $x: $k * 26px
   $y: $k * 10px
   $error: 0px
+  $diff: 4px
 
   $bar0x: 0.5px + $y/2
   $bar1x: 0.5px + 0
@@ -94,37 +95,37 @@
     left: $bar0x
     top: $bar0y
     width: $x
-    height: $y;
+    height: $y
   .bar-1
     left: $bar1x
     top: $bar1y
     width: $y
-    height: $h;
+    height: $h - $diff;
   .bar-2
     left: $bar2x
     top: $bar2y
     width: $y
-    height: $h;
+    height: $h - $diff;
   .bar-3
     left: $bar3x
-    top: $bar3y
+    top: $bar3y - $diff
     width: $x
-    height: $y;
+    height: $y
   .bar-4
     left: $bar4x
-    top: $bar4y
+    top: $bar4y - $diff
     width: $y
-    height: $h;
+    height: $h + $diff
   .bar-5
     left: $bar5x
-    top: $bar5y
+    top: $bar5y - $diff
     width: $y
-    height: $h;
+    height: $h + $diff
   .bar-6
     left: $bar6x
     top: $bar6y
     width: $x
-    height: $y;
+    height: $y
 
 
 

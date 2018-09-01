@@ -5,19 +5,22 @@
   cursor: pointer
   position: relative
   display: inline-block
-  width: 20%
-  height: 70px
   font-weight: 400
+  width: 20%
+  height: 74px
+  margin-bottom: 10px
   .bg
     position: absolute
-    @include abs-box(5px)
+    @include abs-box(5px, 6px)
     border-radius: 20% 20% 40% 40% / 20% 20% 25% 25%
     transform: perspective(10px) rotateX(-1deg)
     transition: all 150ms ease-in-out;
+    top: 10px
+    bottom: 1px
+    margin-top: -5px
     &:before
       content: ''
       @include abs-box(5px)
-      margin-top: -5px
       // background-image: linear-gradient(180deg, $main 70%, rgba(#fff, 0.4))
       // background: #000
       border-radius: 35% 35% 40% 40% / 11% 11% 25% 25%
@@ -45,7 +48,7 @@
     .content
       font-size: 26px
   &.lg
-    height: 150px
+    height: 155px
     .bg
       transform: none
       border-radius: 11% 11% 35% 35% / 5% 5% 14% 14%
