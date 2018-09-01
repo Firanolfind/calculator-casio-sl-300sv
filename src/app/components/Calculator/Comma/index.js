@@ -5,9 +5,9 @@ import style from './Comma.sass';
 
 class Comma extends PureComponent {
   render() {
-    const {position} = this.props;
+    const { position, on } = this.props;
     return (
-      <div className={classNames(style.Comma, `comma-${position}`)} />
+      <div className={classNames(style.Comma, `comma-${position}`, { on })} />
     );
   }
 }

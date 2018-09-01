@@ -22,7 +22,6 @@ class Digit extends PureComponent {
     return (
       <div className={classNames(style.Digit, 'digit', `digit-${position}`)}>
         {[...Array(7).keys()].map(item => (
-          console.log(item) ||
           <div className={classNames(
             'bar', `bar-${item}`, {
               'on': typeof number === 'number' && DIGIT_BITMAP[number][item]

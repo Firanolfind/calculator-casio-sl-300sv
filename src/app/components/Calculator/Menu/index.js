@@ -5,12 +5,12 @@ import style from './Menu.sass';
 
 class Menu extends PureComponent {
   render() {
-    const {position} = this.props;
+    const { memory, minus, error } = this.props;
     return (
       <div className={classNames(style.Menu)}>
-        <div className="memory">m</div>
-        <div className="minus"/>
-        <div className="error">e</div>
+        <div className={classNames("memory", { on: memory })}>m</div>
+        <div className={classNames("minus", { on: minus })}/>
+        <div className={classNames("error", { on: error })}>e</div>
       </div>
     );
   }
