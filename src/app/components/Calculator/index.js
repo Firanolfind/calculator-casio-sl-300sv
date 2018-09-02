@@ -13,18 +13,24 @@ import Dot from './Dot';
 import Menu from './Menu';
 import style from './Calculator.sass';
 
+const Col5 = ({children, xs}) => (
+  <div className={classNames('col', 'col5', {
+    [`col5-${xs}`]: xs
+  })}>{children}</div>
+);
+
 class Calculator extends Component {
   static propTypes = {
   };
 
   render() {
     const {
-      memory,
-      error,
-      minus,
+      memory = true,
+      error = true,
+      minus = true,
       dotPos = 0,
       commaPos = [],
-      digits = []
+      digits = [1,2,3,4,5,1,0,0,1]
     } = this.props;
 
     // const number = 123.8;
@@ -102,18 +108,24 @@ class Calculator extends Component {
               <Button name="six" />
               <Button name="minus" />
             </Row>
-            <Row className="buttonRow">
-              <Button name="C" color="red" />
-              <Button name="one" />
-              <Button name="two" />
-              <Button name="three" />
-              <Button name="plus" size="lg"  />
-            </Row>
-            <Row className="buttonRow">
-              <Button name="allClear" color="red">AC</Button>
-              <Button name="zero" />
-              <Button name="dot" />
-              <Button name="equal" />
+            <Row>
+              <Col5 xs="4">
+                <Row className="buttonRow">
+                  <Button name="C" color="red" w1_4 />
+                  <Button name="one" w1_4 />
+                  <Button name="two" w1_4 />
+                  <Button name="three" w1_4 />
+                </Row>
+                <Row className="buttonRow">
+                  <Button name="allClear" color="red" w1_4>AC</Button>
+                  <Button name="zero" w1_4 />
+                  <Button name="dot" w1_4 />
+                  <Button name="equal" w1_4 />
+                </Row>
+              </Col5>
+              <Col5 xs="1">
+                <Button name="plus" size="lg" w100 />
+              </Col5>
             </Row>
           </Col>
         </Row>

@@ -43,10 +43,11 @@
                 inset darken($main, 30%) 3px -4px 0px 0px,
                 inset $main 4px 1px 0px 0px,
                 inset $white 3px 1px 2px 1px,
-                inset rgba($white, 0.65) 0px -4px 3px 0px;
+                inset rgba($white, 0.65) 0px -4px 3px 0px,
+                rgba($black, 0.31) 4px 1px 10px 0px;
     &:before {
       box-shadow: rgba($main, 0.73) 0 -1px 1px 0px,
-      rgba($black, 1) 0 -2px 0 0px
+      rgba(darken($main, 10%), 1) 0 -2px 0 0px
     }
   }
 
