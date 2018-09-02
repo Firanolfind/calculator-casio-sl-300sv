@@ -4,12 +4,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { persistor } from '~/redux/store';
-
 import { Page } from '~/components/layout';
-
 import Calculator from './components/Calculator';
-
 import { buttonClick as calcButtonClick } from '~/redux/ducks/calculator/actions';
+
 /**
  * Setup redux-react connection
  */

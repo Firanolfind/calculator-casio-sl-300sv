@@ -2,6 +2,8 @@
 \:local(.Button)
   $default: #373742
   $red: #b14261
+  background: transparent
+  border: none
   cursor: pointer
   position: relative
   display: inline-block
@@ -9,6 +11,7 @@
   width: 20%
   height: 74px
   margin-bottom: 10px
+  outline: none!important
   .bg
     position: absolute
     @include abs-box(5px, 6px)
@@ -26,6 +29,8 @@
       border-radius: 35% 35% 40% 40% / 11% 11% 25% 25%
 
   .content
+    // Generate Icons
+    @include generate-icons($_ICON_MAP, icon)
     position: absolute
     @include abs-box(5px)
     bottom: 12px
@@ -40,6 +45,14 @@
     font-family: $default-font
     text-transform: uppercase
     font-size: 40px
+    &:after
+      @include abs-box
+      flex-direction: column
+      display: flex
+      text-align: center
+      align-content: center
+      justify-content: center
+
 
   &.sm
     height: 55px
@@ -62,6 +75,11 @@
   &,
   &.color-default
     @include button-color($default)
+    .bg
+      &:before
+        filter: contrast(130%)
+        opacity: 0.4
+        @extend %noise
   &.color-red
     @include button-color($red)
 

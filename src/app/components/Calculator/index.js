@@ -78,94 +78,42 @@ class Calculator extends Component {
               <Col xs="7" className="modelName">
                 SL-300SV
               </Col>
-              <Button size="sm">
-                sqrt
-              </Button>
-              <Button size="sm">
-                off
-              </Button>
+              <Button size="sm" name="root" />
+              <Button name="off" size="sm">OFF</Button>
             </Row>
             <Row className="buttonRow">
-              <Button>
-                mc
-              </Button>
-              <Button>
-                mr
-              </Button>
-              <Button>
-                m-
-              </Button>
-              <Button active>
-                m+
-              </Button>
-              <Button>
-                ÷
-              </Button>
+              <Button name="memoryClear">MC</Button>
+              <Button name="memoryRestore">MR</Button>
+              <Button name="memoryMinus">M–</Button>
+              <Button name="memoryPlus">M+</Button>
+              <Button name="divide" />
             </Row>
             <Row className="buttonRow">
-              <Button>
-                %
-              </Button>
-              <Button>
-                7
-              </Button>
-              <Button>
-                8
-              </Button>
-              <Button>
-                9
-              </Button>
-              <Button>
-                X
-              </Button>
+              <Button name="percent" />
+              <Button name="seven" />
+              <Button name="eight" />
+              <Button name="nine" />
+              <Button name="multiply" />
             </Row>
             <Row className="buttonRow">
-              <Button>
-                +/-
-              </Button>
-              <Button>
-                4
-              </Button>
-              <Button>
-                5
-              </Button>
-              <Button>
-                6
-              </Button>
-              <Button>
-                -
-              </Button>
+              <Button name="plusminus" />
+              <Button name="four" />
+              <Button name="five" />
+              <Button name="six" />
+              <Button name="minus" />
             </Row>
             <Row className="buttonRow">
-              <Button color="red">
-                C
-              </Button>
-              <Button>
-                1
-              </Button>
-              <Button>
-                2
-              </Button>
-              <Button>
-                3
-              </Button>
-              <Button size="lg">
-                +
-              </Button>
+              <Button name="C" color="red" />
+              <Button name="one" />
+              <Button name="two" />
+              <Button name="three" />
+              <Button name="plus" size="lg"  />
             </Row>
             <Row className="buttonRow">
-              <Button color="red">
-                AC
-              </Button>
-              <Button>
-                0
-              </Button>
-              <Button>
-                .
-              </Button>
-              <Button>
-                =
-              </Button>
+              <Button name="allClear" color="red">AC</Button>
+              <Button name="zero" />
+              <Button name="dot" />
+              <Button name="equal" />
             </Row>
           </Col>
         </Row>

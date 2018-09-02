@@ -1,8 +1,8 @@
 // Icon mixins
 
 // Icon style
-@mixin icon-style($font-weight: normal) {
-  font-family: 'Icon' !important;
+@mixin icon-style($font-weight: normal, $font-family: Calculator) {
+  font-family: $font-family !important;
   speak: none;
   font-style: normal;
   font-weight: $font-weight;
@@ -13,7 +13,7 @@
 }
 // Icon style
 %icon-style {
-  font-family: 'Icon' !important;
+  font-family: 'Calculator' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -39,7 +39,7 @@
 }
 
 // Generating icons
-@mixin generate-icons($map: $_ICON_MAP, $prefix: 'icon') {
+@mixin generate-icons($map: $_ICON_MAP, $prefix: icon) {
   @each $name, $content in $map {
     &.#{$prefix}-#{$name} {
       &.after:after,
