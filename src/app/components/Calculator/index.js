@@ -18,28 +18,31 @@ class Calculator extends Component {
   };
 
   render() {
-
     const {
       memory,
-      error
+      error,
+      minus,
+      dotPos = 0,
+      commaPos = [],
+      digits = []
     } = this.props;
 
-    const number = -9234567.8;
-    const minus = number < 0;
-    const abs = Math.abs(number);
-    const stringNum = abs.toString().split('.');
-    const int = stringNum[0];
-    const float = stringNum[1] || '';
-    const dotPos = float ? float.length : 0;
-    const commaPos = [...Array(~~(int.length/3)).keys()]
-                        .filter(item => int.length > 3)
-                        .map(item => item * 3)
-                        .map(item => dotPos + item)
-                        .map(item => item + 2);
-    const digits = (int + float)
-                      .split('')
-                      .reverse()
-                      .map(item => ~~item);
+    // const number = 123.8;
+    // const minus = number < 0;
+    // const abs = Math.abs(number);
+    // const stringNum = abs.toString().split('.');
+    // const int = stringNum[0];
+    // const float = stringNum[1] || '';
+    // const dotPos = float ? float.length : 0;
+    // const commaPos = [...Array(~~(int.length/3)).keys()]
+    //                     .filter(item => int.length > 3)
+    //                     .map(item => item * 3)
+    //                     .map(item => dotPos + item)
+    //                     .map(item => item + 2);
+    // const digits = (int + float)
+    //                   .split('')
+    //                   .reverse()
+    //                   .map(item => ~~item);
 
     return (
       <Col xs="12">

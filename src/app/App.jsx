@@ -9,13 +9,22 @@ import { Page } from '~/components/layout';
 
 import Calculator from './components/Calculator';
 
+import { buttonClick as calcButtonClick } from '~/redux/ducks/calculator/actions';
 /**
  * Setup redux-react connection
  */
 const stateToProps = (state) => ({
+  digits: state.calculator.digits,
+  memory: state.calculator.memory,
+  error: state.calculator.error,
+  minus: state.calculator.minus,
+  dotPos: state.calculator.dotPos,
+  commaPos: state.calculator.commaPos,
 });
 const actionProps = (dispatch) => ({
-  actions: bindActionCreators({ }, dispatch),
+  actions: bindActionCreators({
+    calcButtonClick
+  }, dispatch),
 });
 
 /**
@@ -38,10 +47,28 @@ class App extends Component {
   };
 
   render() {
+    const {
+      memory,
+      error,
+      minus,
+      dotPos,
+      commaPos,
+      digits
+    } = this.props;
+
+    const calcProps = {
+      memory,
+      error,
+      minus,
+      dotPos,
+      commaPos,
+      digits
+    };
+
     return (
       <Fragment>
         <Page>
-          <Calculator />
+          <Calculator {...calcProps} onBtnClick={this.props.calcButtonClick} />
         </Page>
       </Fragment>
     );
