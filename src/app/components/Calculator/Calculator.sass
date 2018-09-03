@@ -8,12 +8,20 @@ $main: #373742
   width: 510px
   height: 860px
   padding: 10px 15px 30px
+  &:after,
   &:before
     content: ''
     @include abs-box
-    background-color: #e4eaeb
     @extend %noise
-    filter: contrast(130%)
+    background-position: 1px 1px
+  &:after
+    opacity: 0
+    opacity: 0.5;
+    filter: contrast(700%) opacity(0.2);
+  &:before
+    background-color: #e4eaeb
+    border-radius: 0 0 44px 44px
+    filter: contrast(140%)
     box-shadow: inset rgba(#000, 0.1) -29px 0 15px 2px,
     rgba(0, 0, 0, 0.09) 7px 0px 11px 5px,
     inset rgba(#000, 0.13) 0 0 45px 2px,
@@ -38,8 +46,9 @@ $main: #373742
     // inset rgba(#919ea0, 0.29) 0 7px 5px 0px,
     // inset #e4e4e4 0 14px 20px 0px
 
-
-    border-radius: 0 0 44px 44px
+  .body,
+  .header
+    z-index: 1000
 
   ::selection
     background: transparent
