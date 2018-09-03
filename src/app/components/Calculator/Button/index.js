@@ -25,7 +25,8 @@ class Button extends PureComponent {
           sm: size === 'sm',
           lg: size === 'lg',
           active: active,
-          [`color-${color}`]: color
+          [`color-${color}`]: color,
+          [`button-${name}`]: name
         })}
       >
         <div className="bg">

@@ -16,12 +16,15 @@
     width: 100%
   &.w1_4
     width: 25%
+
+  .bg,
+  .content
+    transition: all 150ms ease-in-out
   .bg
     position: absolute
     @include abs-box(5px, 6px)
     border-radius: 20% 20% 40% 40% / 20% 20% 25% 25%
     transform: perspective(10px) rotateX(-1deg)
-    transition: all 150ms ease-in-out;
     top: 10px
     bottom: 1px
     margin-top: -5px
@@ -49,6 +52,9 @@
     font-family: $default-font
     text-transform: uppercase
     font-size: 40px
+    font-size: 44px
+    text-shadow: #000 0 0 3px
+    top: 18px
     &:after
       @include abs-box
       flex-direction: column
@@ -57,6 +63,11 @@
       align-content: center
       justify-content: center
 
+  &.active,
+  &:active
+    .content
+      margin-top: -2px
+      color: rgba($white, 0.9)
 
   &.sm
     height: 55px
@@ -91,3 +102,54 @@
   &.lg
     .bg
       background-image: linear-gradient(180deg, $default 70%, rgba(#fff, 0.2))
+
+
+
+
+
+  &.button-memoryPlus,
+  &.button-memoryMinus,
+  &.button-memoryRestore,
+  &.button-memoryClear
+    .content
+      font-size: 32px
+      top: 16px
+
+
+  &.button-allClear
+    .content
+      font-size: 35px
+
+
+  &.button-plusminus
+    .content
+      font-size: 48px
+      top: 13px
+
+
+  &.button-root
+    .content
+      font-size: 42px
+      top: 13px
+
+  &.button-dot
+    .content
+      font-size: 70px
+      top: -19px
+
+  &.button-divide
+    .content
+      font-size: 44px
+      top: 13px
+
+  &.button-multiply
+  &.button-minus
+    .content
+      top: 13px
+
+
+
+
+
+
+

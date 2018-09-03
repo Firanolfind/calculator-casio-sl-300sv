@@ -1,24 +1,30 @@
-
+$border: #5d646e
 $main: #373742
 // $main: #b14261
 \:local(.Calculator)
-  margin: 0 auto
+  margin: 50px auto
   position: relative
   // box-sizing: content-box
   width: 510px
   height: 860px
-  padding: 30px 15px
+  padding: 10px 15px 30px
   &:before
     content: ''
     @include abs-box
     background-color: #e4eaeb
     @extend %noise
     filter: contrast(130%)
-    box-shadow: inset rgba(8, 8, 8, 0.23) 0 0 2px 2px,
+    box-shadow: inset rgba(#000, 0.1) -29px 0 15px 2px,
+    rgba(0, 0, 0, 0.09) 7px 0px 11px 5px,
+    inset rgba(#000, 0.13) 0 0 45px 2px,
+    inset rgba(8, 8, 8, 0.13) 0 0 150px 2px,
+    inset rgba(8, 8, 8, 0.47) 0 0 2px 2px,
     inset rgba(173, 180, 190, 0.62) -24px 0 2px 0px,
     inset rgba(173, 180, 190, 0.62) 24px 0 2px 0px,
     inset rgba(154, 156, 158, 0.32) 0 -24px 2px 0px,
-    rgba(0, 0, 0, 0.09) 7px 0px 11px 5px,
+    inset rgba(#fff, 0.7) 40px 0 40px 0,
+    inset rgba(#fff, 0.7) 0 20px 10px 0,
+    inset rgba(#000, 0.1) 29px 0 15px 2px,
     rgba(0, 0, 0, 0.22) 8px 25px 11px 5px,
     rgba(0, 0, 0, 0.23) 70px 56px 51px 5px,
     rgba(0, 0, 0, 0.25) 80px 57px 50px 1px,
@@ -41,8 +47,45 @@ $main: #373742
     padding: 0 14px;
   .header
     position: absolute
-
-  .solarPanel
-    height: 91px
   .slogan
     position: absolute
+
+  .modelName
+    font-weight: 600
+    font-size: 20px
+    padding: 10px 0 0 39px
+
+
+
+  .solarPanel
+    height: 71px
+    width: 215px
+    margin-top: 14px
+    margin-bottom: 26px
+    margin-left: 223px
+    box-shadow: #000 0 0 0 1px, #000 0 0 1px 0, $white 2px 2px 1px 0
+    border-radius: 12px
+    padding: 8px
+    .cells
+      position: relative
+      box-shadow: $black 0 0 1px 2px, $border 0 0 1px 7px, #a5a5a5 0 0 0 8px
+      height: 100%
+      border-radius: 3px
+      &:after
+        content: ''
+        @include abs-box
+        background: linear-gradient(-40deg, transparent 80px, rgba($white, 0.08) 0, transparent 70%) top left
+        background-repeat: no-repeat
+        background-size: 100%
+
+      .cell
+        background: #230600
+        height: 100%
+        width: 25%
+        display: inline-block
+        box-shadow: rgba(#e8ab10, 0.2) -1px 0
+
+
+
+
+
