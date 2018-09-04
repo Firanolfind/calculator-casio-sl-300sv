@@ -29,20 +29,21 @@ class Calculator extends Component {
     memory: false,
     error: false,
     accumulator: [0],
+    calculated: true,
   };
 
   Button = (props) => <Btn onBtnClick={this.props.onBtnClick} {...props} />;
 
   render() {
-    const { memory, error, accumulator, onOffClick } = this.props;
+    const { memory, error, accumulator, calculated, onOffClick } = this.props;
 
     // const digits = this.props.digits.reverse();
 
     const Button = this.Button;
 
     const length = accumulator.length;
-
-    const number = length ? accumulator[length - 1] : 0;
+    const l = calculated ? 0 : length - 1;
+    const number = length ? accumulator[l] : 0;
     const minus = number < 0;
     const abs = Math.abs(number);
     const stringNum = abs.toString().split('.');
@@ -117,7 +118,9 @@ class Calculator extends Component {
             <Row>
               <Col5 xs="4">
                 <Row className="buttonRow">
-                  <Button name="C" color="red" w1_4 />
+                  <Button name="clear" color="red" w1_4>
+                    C
+                  </Button>
                   <Button name="one" w1_4 />
                   <Button name="two" w1_4 />
                   <Button name="three" w1_4 />

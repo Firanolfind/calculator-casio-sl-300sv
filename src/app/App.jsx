@@ -15,11 +15,15 @@ const stateToProps = (state) => ({
   memory: state.calculator.memory,
   error: state.calculator.error,
   accumulator: state.calculator.accumulator,
+  calculated: state.calculator.calculated,
 });
 const actionProps = (dispatch) => ({
-  actions: bindActionCreators({
-    submit
-  }, dispatch),
+  actions: bindActionCreators(
+    {
+      submit,
+    },
+    dispatch,
+  ),
 });
 
 /**
@@ -27,11 +31,9 @@ const actionProps = (dispatch) => ({
  * TODO: handle global React Exception
  */
 class App extends Component {
-  static propTypes = {
-  };
+  static propTypes = {};
 
-  static defaultProps = {
-  };
+  static defaultProps = {};
 
   constructor(props) {
     super(props);
@@ -42,26 +44,19 @@ class App extends Component {
   };
 
   render() {
-    const {
-      memory,
-      error,
-      accumulator
-    } = this.props;
+    const { memory, error, accumulator, calculated } = this.props;
 
     const calcProps = {
       memory,
       error,
-      accumulator
+      accumulator,
+      calculated,
     };
 
     return (
       <Fragment>
         <Page>
-          <Calculator
-            {...calcProps}
-            onBtnClick={this.props.actions.submit}
-            onOffClick={this.reset}
-          />
+          <Calculator {...calcProps} onBtnClick={this.props.actions.submit} onOffClick={this.reset} />
         </Page>
       </Fragment>
     );
