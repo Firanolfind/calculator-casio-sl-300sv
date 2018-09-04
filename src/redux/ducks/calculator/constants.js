@@ -29,7 +29,7 @@ export const ALLCLEAR = prefix + 'ALLCLEAR';
 export const MEMORYPLUS = prefix + 'MEMORYPLUS';
 export const MEMORYMINUS = prefix + 'MEMORYMINUS';
 export const MEMORYCLEAR = prefix + 'MEMORYCLEAR';
-export const MEMORYRESTORE = prefix + 'MEMORYRESTORE';
+export const MEMORYRECALL = prefix + 'MEMORYRECALL';
 
 export const numbers = {
   [ZERO]: 0,
@@ -42,12 +42,11 @@ export const numbers = {
   [SEVEN]: 7,
   [EIGHT]: 8,
   [NINE]: 9,
-}
-
+};
 
 export const operators = {
   [PLUS]: 'add',
   [MINUS]: 'sub',
   [MULTIPLY]: 'mul',
-  [DIVIDE]: 'div'
-}
+  [DIVIDE]: 'div',
+};

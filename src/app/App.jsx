@@ -12,10 +12,7 @@ import { submit } from '~/redux/ducks/calculator/actions';
  * Setup redux-react connection
  */
 const stateToProps = (state) => ({
-  memory: state.calculator.memory,
-  error: state.calculator.error,
-  accumulator: state.calculator.accumulator,
-  calculated: state.calculator.calculated,
+  calculator: state.calculator,
 });
 const actionProps = (dispatch) => ({
   actions: bindActionCreators(
@@ -44,19 +41,12 @@ class App extends Component {
   };
 
   render() {
-    const { memory, error, accumulator, calculated } = this.props;
-
-    const calcProps = {
-      memory,
-      error,
-      accumulator,
-      calculated,
-    };
+    const { calculator } = this.props;
 
     return (
       <Fragment>
         <Page>
-          <Calculator {...calcProps} onBtnClick={this.props.actions.submit} onOffClick={this.reset} />
+          <Calculator {...calculator} onBtnClick={this.props.actions.submit} onOffClick={this.reset} />
         </Page>
       </Fragment>
     );

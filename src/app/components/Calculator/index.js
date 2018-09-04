@@ -35,7 +35,7 @@ class Calculator extends Component {
   Button = (props) => <Btn onBtnClick={this.props.onBtnClick} {...props} />;
 
   render() {
-    const { memory, error, accumulator, calculated, onOffClick } = this.props;
+    const { memory, error, accumulator, calculated, dot, off, onOffClick } = this.props;
 
     // const digits = this.props.digits.reverse();
 
@@ -76,14 +76,16 @@ class Calculator extends Component {
             </div>
             <div className="slogan">two way power</div>
             <Display>
-              {[...Array(8).keys()].reverse().map((item) => <Digit position={item} key={item} number={digits[item]} />)}
               {[...Array(8).keys()]
                 .reverse()
-                .map((item) => <Dot position={item} key={item} on={dotPos && item === dotPos} />)}
+                .map((item) => <Digit position={item} key={item} number={digits[item]} off={off} />)}
+              {[...Array(8).keys()]
+                .reverse()
+                .map((item) => <Dot position={item} key={item} on={!off && (dotPos || dot) && item === dotPos} />)}
               {[...Array(7).keys()]
                 .reverse()
-                .map((item) => <Comma position={item} key={item} on={commaPos.indexOf(item) > -1} />)}
-              <Menu minus={minus} memory={memory} error={error} />
+                .map((item) => <Comma position={item} key={item} on={!off && commaPos.indexOf(item) > -1} />)}
+              <Menu minus={minus} memory={memory} error={error} off={off} />
             </Display>
             <Row className="buttonRow">
               <Col xs="7" className="modelName">
@@ -96,7 +98,7 @@ class Calculator extends Component {
             </Row>
             <Row className="buttonRow">
               <Button name="memoryClear">MC</Button>
-              <Button name="memoryRestore">MR</Button>
+              <Button name="memoryReCall">MR</Button>
               <Button name="memoryMinus">M–</Button>
               <Button name="memoryPlus">M+</Button>
               <Button name="divide" />

@@ -5,30 +5,60 @@ const limitsize = 8;
 const max = new Decimal([...Array(limitsize)].map(() => '9').join(''));
 
 const initialState = {
-  memory: null,
   error: false,
   minus: false,
   number: 0,
-  accumulator: [],
+  accumulator: [0],
   memory: 0,
   operator: null,
   calculated: false,
+  off: true,
+  dot: false,
 };
 
 export default (state = initialState, { type }) => {
-  const { accumulator = [], operator, calculated } = state;
+  const { operator, calculated, memory, off, dot } = state;
+  const accumulator = [...state.accumulator];
   const length = accumulator.length;
   let error = false;
 
+  if (off && type !== a.ALLCLEAR) {
+    return state;
+  }
+
   switch (type) {
     case 'persist/PURGE':
+    case a.OFF:
+      return {
+        ...initialState,
+      };
     case a.ALLCLEAR:
-      return initialState;
+      return {
+        ...initialState,
+        off: false,
+      };
     case a.CLEAR:
       return {
         ...initialState,
         memory: state.memory,
+        off,
       };
+    case a.DOT: {
+      if ((length < 1 && !accumulator[length]) || calculated) {
+        return {
+          ...state,
+          operator: null,
+          calculated: false,
+          accumulator: [0],
+          dot: true,
+        };
+      }
+
+      return {
+        ...state,
+        dot: true,
+      };
+    }
     case a.ZERO:
     case a.ONE:
     case a.TWO:
@@ -46,23 +76,30 @@ export default (state = initialState, { type }) => {
           calculated: false,
           accumulator: [number.toNumber()],
           operator: null,
+          dot: false,
           error,
         };
       }
+      console.log('?');
+
       if (length === 0 || (length === 1 && operator)) {
         return {
           ...state,
           calculated: false,
           accumulator: [...accumulator, number.toNumber()],
+          dot: false,
           error,
         };
       }
 
-      const str = accumulator[length - 1].toString();
+      const baseNum = new Decimal(accumulator[length - 1]);
+      let str = baseNum.toString();
 
-      if (str.length > limitsize - 1) {
+      if (str.replace('.', '').length > limitsize - 1) {
         return state;
       }
+      str = dot && !baseNum.dp() ? str + '.' : str;
+      console.log(baseNum.dp(), str, a.numbers[type]);
 
       const value = str + a.numbers[type];
       accumulator[length - 1] = new Decimal(value).toNumber();
@@ -70,6 +107,7 @@ export default (state = initialState, { type }) => {
         ...state,
         calculated: false,
         accumulator: [...accumulator],
+        dot: false,
         error,
       };
     }
@@ -178,7 +216,51 @@ export default (state = initialState, { type }) => {
       }
       return state;
     }
-  }
 
-  return state;
+    case a.MEMORYRECALL: {
+      const l = calculated ? 0 : length - 1;
+      accumulator[l] = memory;
+      return {
+        ...state,
+        calculated: true,
+        accumulator: [...accumulator],
+      };
+    }
+
+    case a.MEMORYCLEAR: {
+      return {
+        ...state,
+        memory: 0,
+      };
+    }
+
+    case a.MEMORYMINUS: {
+      if (!length) {
+        return state;
+      }
+      const l = calculated ? 0 : length - 1;
+      const value = new Decimal(accumulator[l]).sub(memory);
+      return {
+        ...state,
+        calculated: true,
+        memory: value.toNumber(),
+      };
+    }
+
+    case a.MEMORYPLUS: {
+      if (!length) {
+        return state;
+      }
+      const l = calculated ? 0 : length - 1;
+      const value = new Decimal(accumulator[l]).add(memory);
+      return {
+        ...state,
+        calculated: true,
+        memory: value.toNumber(),
+      };
+    }
+
+    default:
+      return state;
+  }
 };
