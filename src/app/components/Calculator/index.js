@@ -22,6 +22,8 @@ const Col5 = ({ children, xs }) => (
   </div>
 );
 
+const maxDigit = 8;
+
 class Calculator extends Component {
   static propTypes = {};
 
@@ -36,8 +38,6 @@ class Calculator extends Component {
 
   render() {
     const { memory, error, accumulator, calculated, dot, off, onOffClick } = this.props;
-
-    // const digits = this.props.digits.reverse();
 
     const Button = this.Button;
 
@@ -76,16 +76,24 @@ class Calculator extends Component {
             </div>
             <div className="slogan">two way power</div>
             <Display>
-              {[...Array(8).keys()]
+              {[...Array(maxDigit).keys()]
                 .reverse()
-                .map((item) => <Digit position={item} key={item} number={digits[item]} off={off} />)}
-              {[...Array(8).keys()]
+                .map((item) => (
+                  <Digit
+                    position={item}
+                    key={item}
+                    number={digits[item]}
+                    off={off}
+                    minus={minus && digits.length === item}
+                  />
+                ))}
+              {[...Array(maxDigit).keys()]
                 .reverse()
                 .map((item) => <Dot position={item} key={item} on={!off && (dotPos || dot) && item === dotPos} />)}
               {[...Array(7).keys()]
                 .reverse()
                 .map((item) => <Comma position={item} key={item} on={!off && commaPos.indexOf(item) > -1} />)}
-              <Menu minus={minus} memory={memory} error={error} off={off} />
+              <Menu minus={minus && digits.length === maxDigit} memory={memory} error={error} off={off} />
             </Display>
             <Row className="buttonRow">
               <Col xs="7" className="modelName">

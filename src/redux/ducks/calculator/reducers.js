@@ -252,7 +252,10 @@ export default (state = initialState, { type }) => {
         return state;
       }
       const l = calculated ? 0 : length - 1;
-      const value = new Decimal(accumulator[l]).add(memory);
+      let value = new Decimal(accumulator[l]).add(memory);
+      if (value.abs().comparedTo(max) > 0) {
+        value = max.mul(value.comparedTo(0));
+      }
       return {
         ...state,
         calculated: true,

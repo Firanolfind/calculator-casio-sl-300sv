@@ -18,13 +18,13 @@ var DIGIT_BITMAP = [
 
 class Digit extends PureComponent {
   render() {
-    const { position, number, off } = this.props;
+    const { position, number, off, minus } = this.props;
     return (
       <div className={classNames(style.Digit, 'digit', `digit-${position}`)}>
         {[...Array(7).keys()].map((item) => (
           <div
             className={classNames('bar', `bar-${item}`, {
-              on: !off && typeof number === 'number' && DIGIT_BITMAP[number][item],
+              on: (!off && typeof number === 'number' && DIGIT_BITMAP[number][item]) || (minus && item === 3),
             })}
             key={item}
           />
