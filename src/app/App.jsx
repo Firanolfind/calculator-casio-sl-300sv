@@ -6,22 +6,19 @@ import PropTypes from 'prop-types';
 import { persistor } from '~/redux/store';
 import { Page } from '~/components/layout';
 import Calculator from './components/Calculator';
-import { buttonClick as calcButtonClick } from '~/redux/ducks/calculator/actions';
+import { submit } from '~/redux/ducks/calculator/actions';
 
 /**
  * Setup redux-react connection
  */
 const stateToProps = (state) => ({
-  digits: state.calculator.digits,
   memory: state.calculator.memory,
   error: state.calculator.error,
-  minus: state.calculator.minus,
-  dotPos: state.calculator.dotPos,
-  commaPos: state.calculator.commaPos,
+  accumulator: state.calculator.accumulator,
 });
 const actionProps = (dispatch) => ({
   actions: bindActionCreators({
-    calcButtonClick
+    submit
   }, dispatch),
 });
 
@@ -48,25 +45,23 @@ class App extends Component {
     const {
       memory,
       error,
-      minus,
-      dotPos,
-      commaPos,
-      digits
+      accumulator
     } = this.props;
 
     const calcProps = {
       memory,
       error,
-      minus,
-      dotPos,
-      commaPos,
-      digits
+      accumulator
     };
 
     return (
       <Fragment>
         <Page>
-          <Calculator {...calcProps} onBtnClick={this.props.calcButtonClick} />
+          <Calculator
+            {...calcProps}
+            onBtnClick={this.props.actions.submit}
+            onOffClick={this.reset}
+          />
         </Page>
       </Fragment>
     );

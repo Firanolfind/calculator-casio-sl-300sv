@@ -28,11 +28,6 @@ if (process.env.NODE_ENV === 'development') {
  * or user sensitive information
  */
 const BLACKLIST = [
-  'codes.busy',
-  'searchInsurance.autocomplete.busy',
-  'searchInsurance.results.busy',
-  'searchCompany.autocomplete.busy',
-  'searchCompany.results.busy',
 ];
 
 /**
@@ -49,7 +44,7 @@ const blackList = createTransform((inboundState, key) =>
  */
 const persistedReducers = persistReducer(
   {
-    key: 'epeli',
+    key: 'calculator',
     storage: pLocalStorage,
     transforms: [blackList],
   },

@@ -11,13 +11,14 @@ class Button extends PureComponent {
   }
 
   handleClick = () => {
-    this.props.onClick(this.props.name);
+    this.props.onBtnClick(this.props.name);
   }
 
   render() {
     const { children, name, size, active, color, w100, w1_4 } = this.props;
     return (
       <button
+        type="button"
         onClick={this.handleClick}
         className={classNames(style.Button, {
           w100,
