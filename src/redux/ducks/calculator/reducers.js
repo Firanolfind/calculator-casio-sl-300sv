@@ -43,7 +43,7 @@ export default (state = initialState, { type }) => {
       if (calculated) {
         return {
           ...state,
-          calculated: true,
+          calculated: false,
           accumulator: [number.toNumber()],
           operator: null,
           error,
