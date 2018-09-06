@@ -1,5 +1,7 @@
 # CASIO SL-300SV Model symulator
 
+![How it looks like](./src/media/demo.png)
+
 ## How to
 
 ### Install
