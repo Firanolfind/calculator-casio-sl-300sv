@@ -7,8 +7,7 @@ const max = new Decimal([...Array(limitsize)].map(() => '9').join(''));
 const initialState = {
   error: false,
   minus: false,
-  number: 0,
-  accumulator: [0],
+  accumulator: ['0'],
   memory: 0,
   operator: null,
   calculated: false,
@@ -43,22 +42,23 @@ export default (state = initialState, { type }) => {
         memory: state.memory,
         off,
       };
-    case a.DOT: {
-      if ((length < 1 && !accumulator[length]) || calculated) {
-        return {
-          ...state,
-          operator: null,
-          calculated: false,
-          accumulator: [0],
-          dot: true,
-        };
-      }
+    // case a.DOT: {
+    //   if ((length < 1 && !accumulator[length]) || calculated) {
+    //     return {
+    //       ...state,
+    //       operator: null,
+    //       calculated: false,
+    //       accumulator: [0],
+    //       dot: true,
+    //     };
+    //   }
 
-      return {
-        ...state,
-        dot: true,
-      };
-    }
+    //   return {
+    //     ...state,
+    //     dot: true,
+    //   };
+    // }
+    case a.DOT:
     case a.ZERO:
     case a.ONE:
     case a.TWO:
@@ -69,45 +69,56 @@ export default (state = initialState, { type }) => {
     case a.SEVEN:
     case a.EIGHT:
     case a.NINE: {
-      const number = new Decimal(a.numbers[type]);
+      const isDot = type == a.DOT;
+      let digit = new Decimal(a.numbers[type]).toString();
+      digit = isDot ? digit + '.' : digit;
+
       if (calculated) {
         return {
           ...state,
           calculated: false,
-          accumulator: [number.toNumber()],
+          accumulator: [digit],
           operator: null,
           dot: false,
           error,
         };
       }
-      console.log('?');
 
       if (length === 0 || (length === 1 && operator)) {
         return {
           ...state,
           calculated: false,
-          accumulator: [...accumulator, number.toNumber()],
+          accumulator: [...accumulator, digit],
           dot: false,
           error,
         };
       }
 
-      const baseNum = new Decimal(accumulator[length - 1]);
-      let str = baseNum.toString();
+      let str = accumulator[length - 1];
+      str = dot || isDot ? str + '.' : str;
+      const baseNum = new Decimal(str);
+
+      if (isDot) {
+        return {
+          ...state,
+          dot: false,
+        };
+      }
 
       if (str.replace('.', '').length > limitsize - 1) {
         return state;
       }
-      str = dot && !baseNum.dp() ? str + '.' : str;
-      console.log(baseNum.dp(), str, a.numbers[type]);
 
-      const value = str + a.numbers[type];
-      accumulator[length - 1] = new Decimal(value).toNumber();
+      let value = str + a.numbers[type];
+      value = value.split('.');
+      value[0] = ~~value[0];
+      accumulator[length - 1] = value.join('.');
+
       return {
         ...state,
         calculated: false,
-        accumulator: [...accumulator],
-        dot: false,
+        accumulator: accumulator,
+        dot: isDot,
         error,
       };
     }
@@ -125,11 +136,13 @@ export default (state = initialState, { type }) => {
           value = max.mul(value.comparedTo(0));
           error = true;
         }
+
         return {
           ...state,
           calculated: false,
-          accumulator: [value.toNumber()],
+          accumulator: [value.toString()],
           operator: a.operators[type],
+          dot: false,
           error,
         };
       }
@@ -138,6 +151,7 @@ export default (state = initialState, { type }) => {
         ...state,
         calculated: false,
         operator: a.operators[type],
+        dot: false,
       };
     }
 
@@ -156,11 +170,12 @@ export default (state = initialState, { type }) => {
         value = max.mul(value.comparedTo(0));
         error = true;
       }
-      accumulator[0] = value.toNumber();
+      accumulator[0] = value.toString();
       return {
         ...state,
         calculated: true,
-        accumulator: [...accumulator],
+        accumulator: accumulator,
+        dot: false,
         error,
       };
     }
@@ -169,10 +184,11 @@ export default (state = initialState, { type }) => {
       if (length) {
         const l = calculated ? 0 : length - 1;
         const value = new Decimal(accumulator[l]).sqrt();
-        accumulator[l] = value.toNumber();
+        accumulator[l] = value.toString();
         return {
           ...state,
-          accumulator: [...accumulator],
+          accumulator: accumulator,
+          dot: false,
         };
       }
 
@@ -196,8 +212,9 @@ export default (state = initialState, { type }) => {
       return {
         ...state,
         calculated: true,
-        accumulator: [value.toNumber()],
+        accumulator: [value.toString()],
         operator: null,
+        dot: false,
         error,
       };
 
@@ -208,7 +225,7 @@ export default (state = initialState, { type }) => {
       if (length > 0) {
         const l = calculated ? 0 : length - 1;
         const value = new Decimal(accumulator[l]).mul(-1);
-        accumulator[l] = value.toNumber();
+        accumulator[l] = value.toString();
         return {
           ...state,
           accumulator: [...accumulator],
@@ -219,11 +236,12 @@ export default (state = initialState, { type }) => {
 
     case a.MEMORYRECALL: {
       const l = calculated ? 0 : length - 1;
-      accumulator[l] = memory;
+      accumulator[l] = new Decimal(memory).toString();
       return {
         ...state,
         calculated: true,
         accumulator: [...accumulator],
+        dot: false,
       };
     }
 
@@ -231,6 +249,7 @@ export default (state = initialState, { type }) => {
       return {
         ...state,
         memory: 0,
+        dot: false,
       };
     }
 
@@ -244,6 +263,7 @@ export default (state = initialState, { type }) => {
         ...state,
         calculated: true,
         memory: value.toNumber(),
+        dot: false,
       };
     }
 
@@ -260,6 +280,7 @@ export default (state = initialState, { type }) => {
         ...state,
         calculated: true,
         memory: value.toNumber(),
+        dot: false,
       };
     }
 

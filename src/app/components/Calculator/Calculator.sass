@@ -19,10 +19,13 @@ $main: #373742
     opacity: 0.5;
     filter: contrast(700%) opacity(0.2);
   &:before
+    top: 15px
     background-color: #e4eaeb
     border-radius: 0 0 44px 44px
     filter: contrast(140%)
-    box-shadow: inset rgba(#000, 0.1) -29px 0 15px 2px,
+    box-shadow: inset rgba($white, 0.7) 0 9px 12px 0,
+    inset rgba($white, 0.7) 0 2px 3px 0,
+    inset rgba(#000, 0.1) -29px 0 15px 2px,
     rgba(0, 0, 0, 0.09) 7px 0px 11px 5px,
     inset rgba(#000, 0.13) 0 0 45px 2px,
     inset rgba(8, 8, 8, 0.13) 0 0 150px 2px,
@@ -31,26 +34,60 @@ $main: #373742
     inset rgba(173, 180, 190, 0.62) 24px 0 2px 0px,
     inset rgba(154, 156, 158, 0.32) 0 -24px 2px 0px,
     inset rgba(#fff, 0.7) 40px 0 40px 0,
-    inset rgba(#fff, 0.7) 0 20px 10px 0,
+    // inset rgba(#fff, 0.7) 0 20px 10px 0,
     inset rgba(#000, 0.1) 29px 0 15px 2px,
     rgba(0, 0, 0, 0.22) 8px 25px 11px 5px,
     rgba(0, 0, 0, 0.23) 70px 56px 51px 5px,
     rgba(0, 0, 0, 0.25) 80px 57px 50px 1px,
     rgba(0, 0, 0, 0.42) 5px 77px 30px -11px,
-    inset rgba(0, 0, 0, 0.19) 0px 0px 0px 3px
+    inset rgba(0, 0, 0, 0.19) 0px 0px 0px 3px,
+    inset rgba(150, 150, 150, 0.52) -20px -22px 4px 0px
 
   .body,
-  .header
     z-index: 1000
+  // .header
 
   ::selection
     background: transparent
   .buttonRow
-    padding: 0 14px;
-  .header
+    padding: 0 14px
+
+  .logo
     position: absolute
+    width: 126px
+    left: 36px
+    top: -17px
+
   .slogan
     position: absolute
+    top: 89px
+    left: 295px
+    text-transform: uppercase
+    font-weight: 500
+    font-size: 11px
+    transform: scale(1.45, 1)
+
+  .header
+    position: absolute
+    background-color: #e4eaeb
+    position: absolute
+    left: 5px
+    top: 0
+    height: 19px
+    border-radius: 2px 2px 13px 13px
+    width: 500px
+    transform: perspective(120px) rotateX(44deg)
+    background-image: linear-gradient(0deg, #fff, #e4eaeb, #9099a0)
+    box-shadow: inset rgba($black, 0.4)  0px 6px 2px -4px,
+    inset rgba($black, 0.4)  -6px 0px 2px -4px,
+    inset rgba($black, 0.4)  6px 0px 2px -4px,
+    inset rgba($white, 0.34) 0px -5px 2px 0px,
+    inset #f5f6f7 1px -3px 3px,
+    inset rgba(55, 76, 97, 0.64) 30px -3px 23px -20px,
+    inset rgba(55, 76, 97, 0.64) -30px -3px 23px -20px,
+    inset rgba($white, 1) 0px -4px 7px 0px,
+    inset rgba(55, 76, 97, 0.18) 4px 4px 3px 0px,
+    rgba(0, 0, 0, 0.18) 0 -1px 0 1px
 
   .modelName
     font-weight: 600

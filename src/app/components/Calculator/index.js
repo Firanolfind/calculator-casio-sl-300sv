@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
+import Decimal from 'decimal.js';
 import Display from './Display';
 import Btn from './Button';
 import Digit from './Digit';
@@ -11,6 +12,7 @@ import Comma from './Comma';
 import Dot from './Dot';
 import Menu from './Menu';
 import style from './Calculator.sass';
+import logo from '~/media/logo.svg';
 
 const Col5 = ({ children, xs }) => (
   <div
@@ -37,16 +39,18 @@ class Calculator extends Component {
   Button = (props) => <Btn onBtnClick={this.props.onBtnClick} {...props} />;
 
   render() {
-    const { memory, error, accumulator, calculated, dot, off, onOffClick } = this.props;
+    const { memory, error, accumulator, calculated, off, onOffClick } = this.props;
 
     const Button = this.Button;
 
     const length = accumulator.length;
     const l = calculated ? 0 : length - 1;
-    const number = length ? accumulator[l] : 0;
-    const minus = number < 0;
-    const abs = Math.abs(number);
+    const str = length ? accumulator[l] : '0';
+    const number = Decimal(str);
+    const minus = number.isNegative();
+    const abs = str.replace('-', '');
     const stringNum = abs.toString().split('.');
+    const dot = stringNum.length > 1;
     const int = stringNum[0];
     const decimal = stringNum[1] || '';
     const dotPos = decimal ? decimal.length : 0;
@@ -65,7 +69,7 @@ class Calculator extends Component {
         <Row className={style.Calculator}>
           <Col xs="12" className="header" />
           <Col xs="12" className="body">
-            <div className="logo" />
+            <img className="logo" src={logo} />
             <div className="solarPanel">
               <div className="cells">
                 <div className="cell" />

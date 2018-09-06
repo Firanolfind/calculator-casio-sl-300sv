@@ -32,6 +32,7 @@ export const MEMORYCLEAR = prefix + 'MEMORYCLEAR';
 export const MEMORYRECALL = prefix + 'MEMORYRECALL';
 
 export const numbers = {
+  [DOT]: 0,
   [ZERO]: 0,
   [ONE]: 1,
   [TWO]: 2,
