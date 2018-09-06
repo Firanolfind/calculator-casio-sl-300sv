@@ -3,7 +3,7 @@ import Decimal from 'decimal.js';
 export default function plusminus(state) {
   const { calculated } = state;
   const accumulator = [...state.accumulator];
-  const length = accumulator.length;
+  const { length } = accumulator;
 
   if (length > 0) {
     const l = calculated ? 0 : length - 1;

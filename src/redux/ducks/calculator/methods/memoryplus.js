@@ -3,7 +3,7 @@ import Decimal from 'decimal.js';
 export default function memoryminus(state, max) {
   const { calculated, memory } = state;
   const accumulator = [...state.accumulator];
-  const length = accumulator.length;
+  const { length } = accumulator;
   if (!length) {
     return state;
   }

@@ -31,7 +31,7 @@ class App extends Component {
   static propTypes = {
     calculator: PropTypes.shape({
       accumulator: PropTypes.array,
-      memory: PropTypes.bool,
+      memory: PropTypes.number,
       error: PropTypes.bool,
       off: PropTypes.bool,
     }).isRequired,

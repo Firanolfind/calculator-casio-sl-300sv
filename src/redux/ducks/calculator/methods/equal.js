@@ -1,9 +1,9 @@
 import Decimal from 'decimal.js';
 
 export default function(state, max) {
-  const { operator, calculated } = state;
+  const { operator } = state;
   const accumulator = [...state.accumulator];
-  const length = accumulator.length;
+  const { length } = accumulator;
   let error = false;
 
   if (!length || !operator) {

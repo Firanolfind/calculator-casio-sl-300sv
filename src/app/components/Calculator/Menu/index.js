@@ -4,6 +4,20 @@ import classNames from 'classnames';
 import style from './Menu.sass';
 
 class Menu extends PureComponent {
+  static propTypes = {
+    memory: PropTypes.number,
+    error: PropTypes.bool,
+    minus: PropTypes.bool,
+    off: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    memory: 0,
+    error: false,
+    minus: false,
+    off: true,
+  };
+
   render() {
     const { memory, minus, error, off } = this.props;
     return (

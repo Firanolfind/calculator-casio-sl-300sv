@@ -1,7 +1,7 @@
 import Decimal from 'decimal.js';
 
 export default function root(state) {
-  const { operator, calculated, memory, off, dot } = state;
+  const { calculated } = state;
   const accumulator = [...state.accumulator];
   const { length } = accumulator;
 

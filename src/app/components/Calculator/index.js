@@ -17,7 +17,7 @@ class Calculator extends Component {
     accumulator: PropTypes.array.isRequired,
     onOffClick: PropTypes.func,
     calculated: PropTypes.bool,
-    memory: PropTypes.bool,
+    memory: PropTypes.number,
     error: PropTypes.bool,
     off: PropTypes.bool,
   };
@@ -25,7 +25,7 @@ class Calculator extends Component {
   static defaultProps = {
     onOffClick: noop,
     calculated: true,
-    memory: false,
+    memory: 0,
     error: false,
     off: true,
   };

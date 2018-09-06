@@ -17,6 +17,20 @@ var DIGIT_BITMAP = [
 ];
 
 class Digit extends PureComponent {
+  static propTypes = {
+    position: PropTypes.number,
+    number: PropTypes.number,
+    minus: PropTypes.bool,
+    off: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    position: 0,
+    number: null,
+    minus: false,
+    off: true,
+  };
+
   render() {
     const { position, number, off, minus } = this.props;
     return (

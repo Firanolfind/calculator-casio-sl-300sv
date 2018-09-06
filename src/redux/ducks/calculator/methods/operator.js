@@ -2,9 +2,9 @@ import Decimal from 'decimal.js';
 import * as a from './../constants';
 
 export default function(state, type, max) {
-  const { operator, calculated, memory, off, dot } = state;
+  const { operator, calculated } = state;
   const accumulator = [...state.accumulator];
-  const length = accumulator.length;
+  const { length } = accumulator;
   let error = false;
 
   if (length > 1) {

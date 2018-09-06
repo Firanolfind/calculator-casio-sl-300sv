@@ -1,10 +1,9 @@
 import Decimal from 'decimal.js';
-import * as a from './../constants';
 
 export default function percent(state, max) {
   const { operator, calculated } = state;
   const accumulator = [...state.accumulator];
-  const length = accumulator.length;
+  const { length } = accumulator;
   let error = false;
   let value;
 
@@ -26,6 +25,4 @@ export default function percent(state, max) {
     accumulator: [value.toString()],
     error,
   };
-
-  return state;
 }
