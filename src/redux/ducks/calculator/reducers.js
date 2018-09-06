@@ -12,7 +12,6 @@ const initialState = {
   operator: null,
   calculated: false,
   off: true,
-  dot: false,
 };
 
 export default (state = initialState, { type }) => {
@@ -42,22 +41,6 @@ export default (state = initialState, { type }) => {
         memory: state.memory,
         off,
       };
-    // case a.DOT: {
-    //   if ((length < 1 && !accumulator[length]) || calculated) {
-    //     return {
-    //       ...state,
-    //       operator: null,
-    //       calculated: false,
-    //       accumulator: [0],
-    //       dot: true,
-    //     };
-    //   }
-
-    //   return {
-    //     ...state,
-    //     dot: true,
-    //   };
-    // }
     case a.DOT:
     case a.ZERO:
     case a.ONE:
@@ -69,56 +52,53 @@ export default (state = initialState, { type }) => {
     case a.SEVEN:
     case a.EIGHT:
     case a.NINE: {
-      const isDot = type == a.DOT;
-      let digit = new Decimal(a.numbers[type]).toString();
-      digit = isDot ? digit + '.' : digit;
+      const isDot = type === a.DOT;
 
       if (calculated) {
+        let char = isDot ? '0.' : new Decimal(a.numbers[type]).toString();
+        console.log(char, 'calculated');
         return {
           ...state,
           calculated: false,
-          accumulator: [digit],
+          accumulator: [char],
           operator: null,
-          dot: false,
           error,
         };
       }
 
       if (length === 0 || (length === 1 && operator)) {
+        let char = isDot ? '0.' : new Decimal(a.numbers[type]).toString();
+        console.log(char, 'length = 0');
         return {
           ...state,
           calculated: false,
-          accumulator: [...accumulator, digit],
-          dot: false,
+          accumulator: [...accumulator, char],
           error,
         };
       }
 
       let str = accumulator[length - 1];
-      str = dot || isDot ? str + '.' : str;
-      const baseNum = new Decimal(str);
 
       if (isDot) {
-        return {
-          ...state,
-          dot: false,
-        };
+        str = /\./.test(str) ? str : str + '.';
+      } else {
+        str = str + a.numbers[type];
+        console.log(str);
+        str = str.split('.');
+        str[0] = ~~str[0];
+        str = str.join('.');
       }
 
-      if (str.replace('.', '').length > limitsize - 1) {
+      if (!isDot && str.replace('.', '').length > limitsize) {
         return state;
       }
 
-      let value = str + a.numbers[type];
-      value = value.split('.');
-      value[0] = ~~value[0];
-      accumulator[length - 1] = value.join('.');
+      accumulator[length - 1] = str;
 
       return {
         ...state,
         calculated: false,
         accumulator: accumulator,
-        dot: isDot,
         error,
       };
     }
