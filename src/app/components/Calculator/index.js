@@ -14,18 +14,6 @@ import Menu from './Menu';
 import style from './Calculator.sass';
 import logo from '~/media/logo.svg';
 
-const Col5 = ({ children, xs }) => (
-  <div
-    className={classNames('col', 'col5', {
-      [`col5-${xs}`]: xs,
-    })}
-  >
-    {children}
-  </div>
-);
-
-const maxDigit = 8;
-
 class Calculator extends Component {
   static propTypes = {};
 
@@ -36,12 +24,13 @@ class Calculator extends Component {
     calculated: true,
   };
 
+  maxDigit = 8;
+
   Button = (props) => <Btn onBtnClick={this.props.onBtnClick} {...props} />;
 
   render() {
+    const { maxDigit, Button } = this;
     const { memory, error, accumulator, calculated, off, onOffClick } = this.props;
-
-    const Button = this.Button;
 
     const length = accumulator.length;
     const l = calculated ? 0 : length - 1;
@@ -49,7 +38,10 @@ class Calculator extends Component {
     const number = Decimal(str);
     const minus = number.isNegative();
     const abs = str.replace('-', '');
-    const stringNum = abs.toString().split('.');
+    const stringNum = abs
+      .toString()
+      .slice(0, maxDigit + 1)
+      .split('.');
     const dot = stringNum.length > 1;
     const int = stringNum[0];
     const decimal = stringNum[1] || '';
@@ -59,6 +51,7 @@ class Calculator extends Component {
       .map((item) => item * 3)
       .map((item) => dotPos + item)
       .map((item) => item + 2);
+
     const digits = (int + decimal)
       .split('')
       .reverse()
@@ -148,7 +141,7 @@ class Calculator extends Component {
                     <Button name="equal" />
                   </Row>
                 </Col>
-                <Button name="plus" size="lg" w100 />
+                <Button name="plus" size="lg" />
               </Row>
             </div>
           </Col>
