@@ -10,15 +10,13 @@ html
   body
     height: 100%
     width: 100%
-    main
-      background-color: $application-background
+    background-color: $application-background
+    > main
+      padding: 80px
+      background: url(./media/bg.jpg) no-repeat
+      background-position: 90% 0
+      background-size: 200%
 
-.container
-  padding-left: 0
-  padding-right: 0
-
-.col.wide,
-[class^='col-'].wide,
-[class*=' col-'].wide
-  padding-right: 15px
-  padding-left: 15px
+@media only screen and (max-width: 800px)
+  html body > main
+    background-size: cover
