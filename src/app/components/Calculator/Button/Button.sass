@@ -1,3 +1,7 @@
+.btns-4
+  width: 80%
+  \:local(.Button)
+    width: 25%
 
 \:local(.Button)
   $default: #373742
@@ -12,10 +16,9 @@
   height: 74px
   margin-bottom: 10px
   outline: none!important
-  &.w100
-    width: 100%
-  &.w1_4
-    width: 25%
+  min-height: 1px
+  padding-right: 7px
+  padding-left: 7px
 
   .bg,
   .content
@@ -31,8 +34,6 @@
     &:before
       content: ''
       @include abs-box(5px)
-      // background-image: linear-gradient(180deg, $main 70%, rgba(#fff, 0.4))
-      // background: #000
       border-radius: 35% 35% 40% 40% / 11% 11% 25% 25%
 
   .content
@@ -77,7 +78,7 @@
     .content
       font-size: 26px
   &.lg
-    height: 155px
+    height: 158px
     .bg
       transform: none
       border-radius: 11% 11% 35% 35% / 5% 5% 14% 14%
@@ -85,9 +86,6 @@
         margin-top: -4px
         bottom: 100px
         border-radius: 24% 24% 40% 40% / 11% 11% 25% 25%
-    .content
-      // font-size: 26px
-
   &,
   &.color-default
     @include button-color($default)
@@ -109,7 +107,7 @@
   &.button-memoryReCall,
   &.button-memoryClear
     .content
-      font-size: 32px
+      font-size: 36px
       top: 16px
 
   &.button-allClear
@@ -123,7 +121,8 @@
       top: 13px
       background: #656573
       box-shadow: inset $black 0 0 2px 2px,
-      inset rgba($white, 0.52) 0px 4px 1px 1px
+      inset rgba($white, 0.52) 0px 3px 1px 1px,
+      inset rgba($white, 0.52) 2px 2px 1px 1px
     &:before
       border-radius: 7px 4px 3px 7px
       transform: rotate(-4deg)
@@ -150,6 +149,7 @@
 
   &.button-clear
     .content
+      left: 2px
       top: 15px
 
   &.button-plusminus

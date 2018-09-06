@@ -23,7 +23,8 @@
     border-radius: 0 0 44px 44px
     filter: contrast(140%)
     box-shadow: inset rgba($white, 0.7) 0 9px 12px 0,
-    inset rgba($white, 0.7) 0 2px 3px 0,
+    inset rgba(60, 53, 53, 0.7) -3px 3px 2px -2px,
+    inset rgba($white, 0.7) 0 5px 2px -2px,
     inset rgba(#000, 0.1) -29px 0 15px 2px,
     rgba(0, 0, 0, 0.09) 7px 0px 11px 5px,
     inset rgba(#000, 0.13) 0 0 45px 2px,
@@ -43,12 +44,13 @@
 
   .body,
     z-index: 1000
-  // .header
 
   ::selection
     background: transparent
-  .buttonRow
+  .buttons
     padding: 0 14px
+    .row:first-child
+      margin-bottom: 2px
 
   .logo
     position: absolute
@@ -59,12 +61,12 @@
   .slogan
     position: absolute
     top: 89px
-    left: 295px
+    left: 294px
     font-family: $primary-font;
     text-transform: uppercase
     font-weight: 500
     font-size: 11px
-    transform: scale(1.45, 1)
+    transform: scale(1.43, 1)
 
   .header
     position: absolute
@@ -89,7 +91,8 @@
     rgba(0, 0, 0, 0.18) 0 -1px 0 1px
 
   .modelName
-    font-family: $primary-font;
+    width: 60%
+    font-family: $primary-font
     font-weight: 500
     font-size: 20px
     padding: 10px 0 0 39px

@@ -99,60 +99,58 @@ class Calculator extends Component {
                 .map((item) => <Comma position={item} key={item} on={!off && commaPos.indexOf(item) > -1} />)}
               <Menu minus={minus && digits.length === maxDigit} memory={memory} error={error} off={off} />
             </Display>
-            <Row className="buttonRow">
-              <Col xs="7" className="modelName">
-                SL-300SV
-              </Col>
-              <Button size="sm" name="root" />
-              <Button name="off" size="sm" onBtnClick={onOffClick}>
-                OFF
-              </Button>
-            </Row>
-            <Row className="buttonRow">
-              <Button name="memoryClear">MC</Button>
-              <Button name="memoryReCall">MR</Button>
-              <Button name="memoryMinus">M–</Button>
-              <Button name="memoryPlus">M+</Button>
-              <Button name="divide" />
-            </Row>
-            <Row className="buttonRow">
-              <Button name="percent" />
-              <Button name="seven" />
-              <Button name="eight" />
-              <Button name="nine" />
-              <Button name="multiply" />
-            </Row>
-            <Row className="buttonRow">
-              <Button name="plusminus" />
-              <Button name="four" />
-              <Button name="five" />
-              <Button name="six" />
-              <Button name="minus" />
-            </Row>
-            <Row>
-              <Col5 xs="4">
-                <Row className="buttonRow">
-                  <Button name="clear" color="red" w1_4>
-                    C
-                  </Button>
-                  <Button name="one" w1_4 />
-                  <Button name="two" w1_4 />
-                  <Button name="three" w1_4 />
-                </Row>
-                <Row className="buttonRow">
-                  <Button name="allClear" color="red" w1_4>
-                    AC
-                    <label>ON</label>
-                  </Button>
-                  <Button name="zero" w1_4 />
-                  <Button name="dot" w1_4 />
-                  <Button name="equal" w1_4 />
-                </Row>
-              </Col5>
-              <Col5 xs="1">
+            <div className="buttons">
+              <Row>
+                <div className="modelName">SL-300SV</div>
+                <Button size="sm" name="root" />
+                <Button name="off" size="sm" onBtnClick={onOffClick}>
+                  OFF
+                </Button>
+              </Row>
+              <Row>
+                <Button name="memoryClear">MC</Button>
+                <Button name="memoryReCall">MR</Button>
+                <Button name="memoryMinus">M–</Button>
+                <Button name="memoryPlus">M+</Button>
+                <Button name="divide" />
+              </Row>
+              <Row>
+                <Button name="percent" />
+                <Button name="seven" />
+                <Button name="eight" />
+                <Button name="nine" />
+                <Button name="multiply" />
+              </Row>
+              <Row>
+                <Button name="plusminus" />
+                <Button name="four" />
+                <Button name="five" />
+                <Button name="six" />
+                <Button name="minus" />
+              </Row>
+              <Row>
+                <Col className="btns-4">
+                  <Row>
+                    <Button name="clear" color="red">
+                      C
+                    </Button>
+                    <Button name="one" />
+                    <Button name="two" />
+                    <Button name="three" />
+                  </Row>
+                  <Row>
+                    <Button name="allClear" color="red">
+                      AC
+                      <label>ON</label>
+                    </Button>
+                    <Button name="zero" />
+                    <Button name="dot" />
+                    <Button name="equal" />
+                  </Row>
+                </Col>
                 <Button name="plus" size="lg" w100 />
-              </Col5>
-            </Row>
+              </Row>
+            </div>
           </Col>
         </Row>
       </Col>
