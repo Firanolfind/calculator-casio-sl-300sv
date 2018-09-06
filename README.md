@@ -8,14 +8,18 @@
 
     yarn
 
-### Start demo application
+### Demo
 
-Builds and run demo application at `localhost:3000`
+Builds and starts demo application server at `localhost:3000`
 
     yarn demo
 
-### Start in dev mode
+### Develop
 
 Starts in watch mode at `localhost:3000`
 
     yarn start
+
+### Build
+
+    yarn build
