@@ -56,7 +56,6 @@ export default (state = initialState, { type }) => {
 
       if (calculated) {
         let char = isDot ? '0.' : new Decimal(a.numbers[type]).toString();
-        console.log(char, 'calculated');
         return {
           ...state,
           calculated: false,
@@ -68,7 +67,6 @@ export default (state = initialState, { type }) => {
 
       if (length === 0 || (length === 1 && operator)) {
         let char = isDot ? '0.' : new Decimal(a.numbers[type]).toString();
-        console.log(char, 'length = 0');
         return {
           ...state,
           calculated: false,
@@ -83,7 +81,6 @@ export default (state = initialState, { type }) => {
         str = /\./.test(str) ? str : str + '.';
       } else {
         str = str + a.numbers[type];
-        console.log(str);
         str = str.split('.');
         str[0] = ~~str[0];
         str = str.join('.');
