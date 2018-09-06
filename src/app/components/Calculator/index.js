@@ -28,8 +28,13 @@ class Calculator extends Component {
 
   Button = (props) => <Btn onBtnClick={this.props.onBtnClick} {...props} />;
 
+  handleOffClick = (...args) => {
+    this.props.onBtnClick(...args);
+    this.props.onOffClick(...args);
+  };
+
   render() {
-    const { maxDigit, Button } = this;
+    const { maxDigit, Button, handleOffClick } = this;
     const { memory, error, accumulator, calculated, off, onOffClick } = this.props;
 
     const length = accumulator.length;
@@ -96,7 +101,7 @@ class Calculator extends Component {
               <Row>
                 <div className="modelName">SL-300SV</div>
                 <Button size="sm" name="root" />
-                <Button name="off" size="sm" onBtnClick={onOffClick}>
+                <Button name="off" size="sm" onBtnClick={handleOffClick}>
                   OFF
                 </Button>
               </Row>
