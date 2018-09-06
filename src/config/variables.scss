@@ -56,9 +56,9 @@ $secondary: $white;
 $alternative-fonts-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
   sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 $alternative-fonts-serif: 'Times New Roman', serif;
-$alternative-fonts: $alternative-fonts-sans-serif;
+$alternative-fonts: 'Open Sans', $alternative-fonts-sans-serif;
 
-$primary-font: $alternative-fonts-serif;
+$primary-font: $alternative-fonts;
 $default-font: 'Calculator', $alternative-fonts-sans-serif;
 
 //
@@ -67,8 +67,3 @@ $default-font: 'Calculator', $alternative-fonts-sans-serif;
 $font-family-sans-serif: $default-font;
 
 $grid-gutter-width: 14px;
-
-
-
-
-

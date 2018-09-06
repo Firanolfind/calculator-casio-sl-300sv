@@ -1,10 +1,9 @@
-$border: #5d646e
-$main: #373742
-// $main: #b14261
+
 \:local(.Calculator)
+  $border: #5d646e
+  $main: #373742
   margin: 50px auto
   position: relative
-  // box-sizing: content-box
   width: 510px
   height: 860px
   padding: 10px 15px 30px
@@ -34,7 +33,6 @@ $main: #373742
     inset rgba(173, 180, 190, 0.62) 24px 0 2px 0px,
     inset rgba(154, 156, 158, 0.32) 0 -24px 2px 0px,
     inset rgba(#fff, 0.7) 40px 0 40px 0,
-    // inset rgba(#fff, 0.7) 0 20px 10px 0,
     inset rgba(#000, 0.1) 29px 0 15px 2px,
     rgba(0, 0, 0, 0.22) 8px 25px 11px 5px,
     rgba(0, 0, 0, 0.23) 70px 56px 51px 5px,
@@ -62,6 +60,7 @@ $main: #373742
     position: absolute
     top: 89px
     left: 295px
+    font-family: $primary-font;
     text-transform: uppercase
     font-weight: 500
     font-size: 11px
@@ -90,7 +89,8 @@ $main: #373742
     rgba(0, 0, 0, 0.18) 0 -1px 0 1px
 
   .modelName
-    font-weight: 600
+    font-family: $primary-font;
+    font-weight: 500
     font-size: 20px
     padding: 10px 0 0 39px
 

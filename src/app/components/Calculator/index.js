@@ -142,6 +142,7 @@ class Calculator extends Component {
                 <Row className="buttonRow">
                   <Button name="allClear" color="red" w1_4>
                     AC
+                    <label>ON</label>
                   </Button>
                   <Button name="zero" w1_4 />
                   <Button name="dot" w1_4 />
