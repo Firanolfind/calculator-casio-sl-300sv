@@ -42,7 +42,7 @@ class Calculator extends Component {
     const str = length ? accumulator[l] : '0';
     const number = Decimal(str);
     const minus = number.isNegative();
-    const abs = str.replace('-', '');
+    const abs = String(str).replace('-', '');
     const stringNum = abs
       .toString()
       .slice(0, maxDigit + 1)
