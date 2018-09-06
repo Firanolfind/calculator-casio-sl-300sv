@@ -28,13 +28,14 @@ const actionProps = (dispatch) => ({
  * TODO: handle global React Exception
  */
 class App extends Component {
-  static propTypes = {};
-
-  static defaultProps = {};
-
-  constructor(props) {
-    super(props);
-  }
+  static propTypes = {
+    calculator: PropTypes.shape({
+      accumulator: PropTypes.array,
+      memory: PropTypes.bool,
+      error: PropTypes.bool,
+      off: PropTypes.bool,
+    }).isRequired,
+  };
 
   reset = () => {
     persistor.purge();

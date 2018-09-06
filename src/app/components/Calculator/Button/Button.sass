@@ -37,7 +37,6 @@
       border-radius: 35% 35% 40% 40% / 11% 11% 25% 25%
 
   .content
-    // Generate Icons
     @include generate-icons($_ICON_MAP, icon)
     position: absolute
     @include abs-box(5px)
@@ -45,16 +44,14 @@
     display: flex
     text-align: center
     flex-direction: column
-    display: flex
     text-align: center
     align-content: center
     justify-content: center
-    color: #fff
     font-family: $default-font
+    text-shadow: $black 0 0 3px
     text-transform: uppercase
-    font-size: 40px
     font-size: 44px
-    text-shadow: #000 0 0 3px
+    color: #fff
     top: 18px
     &:before,
     &:after
@@ -138,7 +135,7 @@
       left: 11px
       right: 11px
     label
-      position: absolute;
+      position: absolute
       text-shadow: none
       color: #3a3a3a
       font-size: 16px

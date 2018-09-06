@@ -9,3 +9,4 @@ public/*
 package.json
 *.properties
 yarn.*
+registerServiceWorker.js

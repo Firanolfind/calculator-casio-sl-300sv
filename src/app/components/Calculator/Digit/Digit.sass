@@ -5,23 +5,8 @@
 
   \:local(.Digit)
     margin-right: 9px
-    // display: none
     &.digit-0
-      // display: block
       margin-right: 13px
-
-    &.digit-1
-
-    &.digit-2
-
-    &.digit-3
-
-    &.digit-4
-
-    &.digit-5
-
-    &.digit-6
-
 
 \:local(.Digit)
 
@@ -49,9 +34,8 @@
   $bar5y: $h + $y/2
   $bar6y: 2*$h
 
-  $color: $black;
+  $color: $black
 
-  // background: rgba(#3F51B5, 0.2)
   display: flex
   position: relative
   top: 19px
@@ -73,7 +57,7 @@
     background-size: 52% 52%
     background-repeat: no-repeat
     &:after
-      background: $color;
+      background: $color
       content: ''
 
   .bar.on
@@ -101,12 +85,12 @@
     left: $bar1x
     top: $bar1y
     width: $y
-    height: $h - $diff;
+    height: $h - $diff
   .bar-2
     left: $bar2x
     top: $bar2y
     width: $y
-    height: $h - $diff;
+    height: $h - $diff
   .bar-3
     left: $bar3x
     top: $bar3y - $diff
@@ -127,75 +111,4 @@
     top: $bar6y
     width: $x
     height: $y
-
-
-
-// .clock .fadeout {
-//   background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255, 0.8));
-//   background-image: -webkit-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255, 0.8));
-//   position: absolute;
-//   top: 0px;
-//   left: 0px;
-//   width: 700px;
-//   height: 350px;
-// }
-
-// .clock ul {
-//   margin: 0;
-//   padding: 0;
-//   position: relative;
-// }
-
-// .clock ul li {
-//   list-style: none;
-//   display: inline-block;
-//   position: relative;
-//   top: 30px;
-//   margin: 0;
-//   padding: 0;
-//   width: 120px;
-//   height: 200px;
-// }
-
-
-// .clock ul li
-
-// .clock ul li.digit5, .clock ul li.digit6 {
-//   position: absolute;
-//   left: 570px;
-//   -webkit-transform: scale(0.1, 0.1);
-//   -moz-transform: scale(0.1, 0.1);
-//   transform: scale(0.1, 0.1);
-// }
-
-// .clock ul li.digit6 {
-//   left: 585px;
-// }
-
-// .clock .bar {
-//   $color: #2df;
-//   position: absolute;
-//   border-radius: 0px;
-//   border: 8px solid #2df;
-//   background: #2df;
-//   -webkit-transition: all 0.2s linear;
-//   -moz-transition: all 0.2s linear;
-//   transition: all 0.2s linear;
-//   border: none;
-//   background: linear-gradient(135deg, transparent 2*$padding, $color 0) top left,
-//               linear-gradient(225deg, transparent 2*$padding, $color 0) top right,
-//               linear-gradient(315deg, transparent 2*$padding, $color 0) bottom right,
-//               linear-gradient(45deg, transparent 2*$padding, $color 0) bottom left;
-//   background-size: 54% 54%;
-//   background-repeat: no-repeat;
-// }
-// .clock .bar0 { left: $bar0x; top: $bar0y; width: $x; height: $y; }
-// .clock .bar1 { left: $bar1x; top: $bar1y; width: $y; height: $h; }
-// .clock .bar2 { left: $bar2x; top: $bar2y; width: $y; height: $h; }
-// .clock .bar3 { left: $bar3x; top: $bar3y; width: $x; height: $y; }
-// .clock .bar4 { left: $bar4x; top: $bar4y; width: $y; height: $h; }
-// .clock .bar5 { left: $bar5x; top: $bar5y; width: $y; height: $h; }
-// .clock .bar6 { left: $bar6x; top: $bar6y; width: $x; height: $y; }
-
-// .clock .bar.off { opacity: 0.2 }
 

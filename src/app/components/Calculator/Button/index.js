@@ -1,40 +1,45 @@
 import React, { PureComponent } from 'react';
-import { noop } from 'lodash';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import style from './Button.sass';
 
 class Button extends PureComponent {
+  static propTypes = {
+    active: PropTypes.bool,
+    color: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    size: PropTypes.string,
+  };
 
   static defaultProps = {
-    onClick: noop
-  }
+    active: false,
+    color: '',
+    size: '',
+  };
 
   handleClick = () => {
     this.props.onBtnClick(this.props.name);
-  }
+  };
 
   render() {
-    const { children, name, size, active, color, w100, w1_4 } = this.props;
+    const { children, name, size, active, color } = this.props;
     return (
       <button
         type="button"
         onClick={this.handleClick}
         className={classNames(style.Button, {
-          w100,
-          w1_4,
           sm: size === 'sm',
           lg: size === 'lg',
-          active: active,
           [`color-${color}`]: color,
-          [`button-${name}`]: name
+          [`button-${name}`]: name,
+          active,
         })}
       >
-        <div className="bg">
-        </div>
-        <div className={classNames("content", {
+        <div className="bg" />
+        <div
+          className={classNames('content', {
+            [`icon-${name}`]: name,
             after: !children,
-            [`icon-${name}`]: name
           })}
         >
           {children}
